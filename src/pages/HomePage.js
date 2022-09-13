@@ -1,7 +1,11 @@
 import Banner from "../components/Banner/Banner";
 
 function HomePage() {
-  return <Banner />;
+  return (
+    <section className="homepage">
+      <Banner />
+    </section>
+  );
 }
 
 export default HomePage;
