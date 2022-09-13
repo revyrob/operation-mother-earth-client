@@ -1,0 +1,35 @@
+@use '../../styles/variables' as *;
+
+.btnBig {
+    width: 300px;
+    height: 95px;
+    background-color: rgba(142, 228, 175, .7);
+    color: black;
+    border-radius: 35px;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin: 1rem 0;
+    // box-shadow: 2px 2px 2px black;
+    transition: .5s;
+    &:hover {
+        box-shadow: 4px 4px 4px white;
+        background-color: $color-dark-sec;
+        color: white;
+    }
+    &--text {
+        font-size: 24px;
+        transition: .5s;
+        padding-left: 5px;
+        &:hover {
+            padding-left: 10px;
+        }
+    }
+    &--img {
+        width:64px;
+        height: 48px;
+
+        
+    }
+}

@@ -1,0 +1,19 @@
+@use '../../styles/variables' as *;
+
+.btnSm {
+    width: 150px;
+    height: 70px;
+    background-color: white;
+    color: black;
+    border-radius: 35px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 1rem ;
+    box-shadow: 1px 1px 1px black;
+    &--text {
+        font-size: 20px;
+        font-family: $font-title;
+    }
+}
