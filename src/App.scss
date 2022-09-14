@@ -1,6 +1,5 @@
 @use './styles/reset';
-@use './styles/variables';
-
+@use './styles/variables' as *;
 
 .App {
   text-align: center;
@@ -55,4 +54,10 @@ a:hover {
 
 a:active {
   text-decoration: none;
+}
+
+.recycling {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

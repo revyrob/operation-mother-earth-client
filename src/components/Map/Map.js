@@ -1,21 +1,16 @@
 import "./Map.scss";
-import { GoogleMap } from "react-google-maps";
+import { GoogleMap } from "@react-google-maps/api";
 
 function Map() {
   return (
     <GoogleMap
-      defaultZoom={10}
-      defaultCenter={{ lat: 49.28507657283974, lng: -123.11461581337777 }}
-    />
+      zoom={10}
+      center={{ lat: 49.2786062, lng: -123.0999113 }}
+      mapContainerClassName="map"
+    ></GoogleMap>
   );
 }
 export default Map;
 
-{
-  /* <section className="map">
-  <h2>Map</h2>
-  <div className="map__google"></div>
-  <h2>E-waste Centers</h2>
-  <div className="map__selection"></div>
-</section>; */
-}
+//couple higher order components and wrapping a few different layers
+// const WrappedMap = withScriptjs(withGoogleMap(Map));
