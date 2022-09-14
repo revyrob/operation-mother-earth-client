@@ -1,3 +1,7 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+
 .map{
     display: flex;
     flex-direction: column;

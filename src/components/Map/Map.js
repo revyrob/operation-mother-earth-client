@@ -11,9 +11,11 @@ function Map() {
 }
 export default Map;
 
-<section className="map">
+{
+  /* <section className="map">
   <h2>Map</h2>
   <div className="map__google"></div>
   <h2>E-waste Centers</h2>
   <div className="map__selection"></div>
-</section>;
+</section>; */
+}
