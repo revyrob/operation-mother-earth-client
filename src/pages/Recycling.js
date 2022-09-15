@@ -11,36 +11,44 @@ import axios from "axios";
 import MapList from "../components/MapList/MapList";
 
 export default function Recycling() {
+  //state for map list
   const [mapList, setMapList] = useState(null);
+  //state for markers that come up
+  const [markers, setMarkers] = useState(null);
 
   //get recycling centers data, pass it to the Hook
   //and pass it to the MapList
-  useEffect(() => {
+  const getMapInfo = () => {
     axios
       .get(`http://localhost:8080/recycling`)
       .then((response) => {
-        console.log(response.data.results);
+        setMapList(response.data);
+        setMarkers(response.data);
+        // console.log(response);
       })
-      .catch((err) => {
-        console.log(err);
-      });
-  });
+      .catch((err) => console.log(err));
+  };
 
   // this can post the lat lon to the backend so I get the correct data back
+  // const mapTest = () => {
+  //   axios
+  //     .post(`http://localhost:8080/recycling/test`, {
+  //       //need to change this to geolocation
+  //       lat: "49.28507657283974",
+  //       lon: "-123.11461581337777",
+  //     })
+  //     .then((response) => {
+  //       console.log(response);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+
+  //work on getting mocktail data once server is running
   useEffect(() => {
-    axios
-      .post(`http://localhost:8080/recycling/test`, {
-        //need to change this to geolocation
-        lat: "49.28507657283974",
-        lon: "-123.11461581337777",
-      })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  });
+    getMapInfo();
+  }, []);
 
   //for loading the googlemap with the google map api key
   const { isLoaded } = useLoadScript({
