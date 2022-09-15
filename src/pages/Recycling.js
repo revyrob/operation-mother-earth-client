@@ -1,7 +1,7 @@
 import TitleHeader from "../components/TitleHeader/TitleHeader";
 import recycling from "../assets/icons/recycling-icon.svg";
 import ButtonBar from "../components/ButtonBar/ButtonBar";
-import Map from "../components/Map/Map";
+// import Map from "../components/Map/Map";
 
 import React, { useEffect, useState } from "react";
 import { useLoadScript } from "@react-google-maps/api";
@@ -10,50 +10,27 @@ import axios from "axios";
 
 import MapList from "../components/MapList/MapList";
 
-function Recycling() {
-  //this can post the lat lon to the backend so I get the correct data back
-  useEffect(() => {
-    axios
-      .post(`http://localhost:8080/recycling/test`, {
-        //need to change this to geolocation
-        lat: "49.28507657283974",
-        lon: "-123.11461581337777",
-      })
-      .then((response) => {
-        console.log(response);
-      });
-  });
-
-  const GOOGLE_API = process.env.REACT_APP_NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
-
-  //function on load
-  const input = "e-waste recycling";
-  const latBrain = "49.28507657283974";
-  const lonBrain = "-123.11461581337777";
-
-  //but this will reload with geolocation
-  //set state of lat and long
-  const [lat, setLat] = useState("");
-  const [lon, setLon] = useState("");
-
-  //create a useEffect and get the map to load after the DOM
+export default function Recycling() {
+  // this can post the lat lon to the backend so I get the correct data back
   // useEffect(() => {
   //   axios
-  //     .get(`https://maps.googleapis.com/maps/api/js?key=${GOOGLE_API}`)
-  //     // .then((response) => {
-  //     //   setLat(latBrain);
-  //     //   setLon(lonBrain);
-  //     // })
-  //     .catch(function (error) {
-  //       console.log(error);
+  //     .post(`http://localhost:8080/recycling/test`, {
+  //       //need to change this to geolocation
+  //       lat: "49.28507657283974",
+  //       lon: "-123.11461581337777",
+  //     })
+  //     .then((response) => {
+  //       console.log(response);
   //     });
   // });
 
-  // const { isLoaded } = useLoadScript({
-  //   googleMapsApiKey: GOOGLE_API,
-  // });
+  //for loading the googlemap with the google map api key
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: process.env.REACT_APP_NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
+  });
 
-  // if (!isLoaded) return <div>Loading...</div>;
+  //if map isn't loading
+  if (!isLoaded) return <div>Loading...</div>;
 
   return (
     <section className="recycling">
@@ -69,4 +46,13 @@ function Recycling() {
   );
 }
 
-export default Recycling;
+//I had trouble making it into it's own component it is now here
+function Map() {
+  return (
+    <GoogleMap
+      zoom={10}
+      center={{ lat: 49.2786062, lng: -123.0999113 }}
+      mapContainerClassName="map__google"
+    ></GoogleMap>
+  );
+}
