@@ -15,11 +15,11 @@ import { Link } from "react-router-dom";
 function Banner() {
   return (
     <section className="banner">
-      <Link to={Game}>
+      <Link to={"/game"}>
         <ButtonBig img={gameIcon} alt={"game icon"} text={"Game"} />
       </Link>
 
-      <Link to={Recycling}>
+      <Link to={"/recycling"}>
         <ButtonBig
           img={recycleIcon}
           alt={"recycle icon"}
@@ -27,7 +27,7 @@ function Banner() {
         />
       </Link>
 
-      <Link to={BuySell}>
+      <Link to={"/buySell"}>
         <ButtonBig
           img={buySellIcon}
           alt={"buy and sell icon"}
@@ -35,11 +35,11 @@ function Banner() {
         />
       </Link>
 
-      <Link to={Education}>
+      <Link to={"/education"}>
         <ButtonBig
           img={education}
           alt={"books icon"}
-          text={"Education Yourself"}
+          text={"Educate Yourself"}
         />
       </Link>
     </section>

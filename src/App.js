@@ -6,6 +6,7 @@ import Header from "./components/Header/Header";
 import HomePage from "./pages/HomePage";
 import Game from "./pages/Game";
 import Recycling from "./pages/Recycling";
+import RecyclingForm from "./pages/RecyclingForm";
 import BuySell from "./pages/BuySell";
 import Education from "./pages/Education";
 import Footer from "./components/Footer/Footer";
@@ -20,6 +21,7 @@ function App() {
         <Route path="/game" element={<Game />} />
 
         <Route path="/recycling" element={<Recycling />} />
+        <Route path="/recycling/new" element={<RecyclingForm />} />
 
         <Route path="/education" element={<Education />} />
 
