@@ -5,7 +5,10 @@ Dependencies:
 <li>Node</li>
 <li>Axios</li>
 <li>Sass</li>
-
+<li>react</li>
+<li>react-dom</li>
+<li>react-router-dom</li>
+<li>react-google-maps/api</li>
 
 ## Install
 

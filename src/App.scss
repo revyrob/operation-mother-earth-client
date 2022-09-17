@@ -1,6 +1,5 @@
 @use './styles/reset';
-@use './styles/variables';
-
+@use './styles/variables' as *;
 
 .App {
   text-align: center;
@@ -40,7 +39,9 @@
     transform: rotate(360deg);
   }
 }
-
+body {
+  font-family: 'Basic', sans-serif;
+}
 a:link {
   text-decoration: none;
 }
@@ -55,4 +56,31 @@ a:hover {
 
 a:active {
   text-decoration: none;
+}
+
+.recycling {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 2rem;
+  &__img {
+    margin: 1.5rem 0;
+  }
+}
+
+.map__google{
+  align-items: center;
+  border: 2px solid $color-light-sec;
+  height: 50vh;
+  width: 93%;
+  padding: .5rem;
+  margin: 0 1rem ;
+  
 }
