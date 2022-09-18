@@ -64,16 +64,6 @@ a:active {
   justify-content: center;
 }
 
-.game {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 1rem 2rem;
-  &__img {
-    margin: 1.5rem 0;
-  }
-}
 
 .map__google{
   align-items: center;
