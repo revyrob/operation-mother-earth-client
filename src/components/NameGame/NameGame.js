@@ -30,7 +30,7 @@ function NameGame({ nameHandler }) {
             />
           </div>
         </label>
-        <Link to="/game/storyboard1">
+        <Link to="/game/storyboard">
           <button className="namegame__btn" type="submit">
             <img
               className="namegame__btn--img"
