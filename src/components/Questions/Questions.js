@@ -1,34 +1,17 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Line } from "rc-progress";
 
 function Questions() {
-  //get questions and answer for game
-  const questions = () => {
-    axios
-      .get(`http://localhost:8080/game`)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((err) => console.log(err));
-  };
-
-  useEffect(() => {
-    questions();
-  }, []);
-
-  console.log(questions);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  return (
-    <></>
-    // <div className="questions">
-    //   <div className="question__section">
-    //     <div className="question__progressBar">
-    //       <div className="question__progress" style={{"width":{currentQuestion} + 1}/{questions.length}}>
-    //       </div>
-    //       <div className="question__text">{questions[currentQuestion].question}</div>
-    //     </div>
-    //   </div>
-    // </div>
-  );
+  return;
+  <></>;
+  //   <div className="questions">
+  //     <div className="questions__progressBar">
+  //       <Line percent={10} strokeWidth={4} strokeColor="#D3D3D3" />
+  //     </div>
+  //     <div className="questions__text">{text}</div>
+  //     <div className="questions__responses"></div>
+  //   </div>
+  // );
 }
 export default Questions;

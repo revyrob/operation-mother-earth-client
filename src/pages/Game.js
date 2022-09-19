@@ -1,19 +1,24 @@
 import NameGame from "../components/NameGame/NameGame";
-import { useState, useEffect } from "react";
-import Questions from "../components/Questions/Questions";
-import { render } from "@testing-library/react";
+import { useState, useEffect, Link } from "react";
 import axios from "axios";
-import StoryboardPage from "./StoryboardPage";
+import { useNavigate } from "react-router-dom";
+import Storyboard from "../components/Storyboard/Storyboard";
 
 function Game() {
   // const [name, setName] = useState(" ");
+  let navigate = useNavigate();
 
   //sets the name for user
   const setNameHandler = (e) => {
-    e.preventDefault();
     const userName = e.target.name.value;
-    setName(userName);
-    // render(<StoryboardPage />);
+    console.log(userName);
+    //??I am not sure why this isn't testing??
+    if (typeof userName === "string" || userName instanceof String) {
+      setName(userName);
+      setStoryGame(true);
+    } else {
+      alert("Enter a username");
+    }
   };
 
   //get questions and answer for game
@@ -26,16 +31,63 @@ function Game() {
       .catch((err) => console.log(err));
   };
 
-  // useEffect(() => {
-  //   getQuestions();
-  // }, []);
+  useEffect(() => {
+    getQuestions();
+  }, []);
+
+  const getStory = () => {
+    axios
+      //??the images are not showing up??
+      .get(`http://localhost:8080/gameStory`)
+      .then((response) => {
+        setStory(response.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    getStory();
+  }, []);
+
+  const [story, setStory] = useState(" ");
+  const [currentStoryboard, setCurrentStoryboard] = useState(0);
+
+  //create on click forward goes to the next page
+  //it also goes to the next storyboard info
+  const clickForward = () => {
+    const nextStoryboard = currentStoryboard + 1;
+    if (nextStoryboard < story.length) {
+      setCurrentStoryboard(nextStoryboard);
+    } else {
+      navigate("/game/questions");
+    }
+  };
+  //create onclick back goes to the previous page
+  //goes back in storyboard info
+  const clickHome = () => {
+    navigate("/");
+  };
 
   const [name, setName] = useState("");
+  const [showStory, setStoryGame] = useState(false);
+
   console.log(name);
 
+  //write an if statement if there is a name in the state go to the questions
   return (
     <>
-      <NameGame nameHandler={setNameHandler} />
+      {showStory ? (
+        <Storyboard
+          // img={story[currentStoryboard].image}
+          //how to set name in here for first storyboard
+          alt={story[currentStoryboard].alt}
+          text={story[currentStoryboard].text}
+          clickHome={clickHome}
+          clickForward={clickForward}
+        />
+      ) : (
+        <NameGame nameHandler={setNameHandler} />
+      )}
     </>
   );
 }
