@@ -13,8 +13,16 @@ function Questions() {
       .catch((err) => console.log(err));
   };
 
+  //get level by seeing if the current questions is divisble by 3
+  const getLevel = () => {
+    if (currentQuestion % 3) {
+      setLevel(true);
+    }
+  };
+
   useEffect(() => {
     getQuestions();
+    getLevel();
   }, []);
 
   const handleAnswerOptionClick = () => {
@@ -29,31 +37,42 @@ function Questions() {
 
   const [questions, setQuestions] = useState("");
   const [currentQuestion, setCurrentQuestion] = useState(0);
-
+  const [level, setLevel] = useState(false);
+  const [fact, setFact] = useState(false);
+  //show three levels equally when question is divisble by 3
+  //show three facts when the question is divisble by 2
   return (
-    <div className="questions">
-      <div className="questions__progressBar">
-        <Line
-          percent={((currentQuestion + 1) / questions.length) * 100}
-          strokeWidth={4}
-          strokeColor="#379683"
-        />
-      </div>
-      <div className="questions__text">
-        {questions && questions[currentQuestion].question}
-      </div>
-      <div className="questions__answers">
-        {questions &&
-          questions[currentQuestion].answerOptions.map((answerOption) => (
-            <button
-              className="questions__btn"
-              onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}
-            >
-              {answerOption.answer}
-            </button>
-          ))}
-      </div>
-    </div>
+    <>
+      {level ? (
+        <Level />
+      ) : (
+        <div className="questions">
+          <div className="questions__progressBar">
+            <Line
+              percent={((currentQuestion + 1) / questions.length) * 100}
+              strokeWidth={4}
+              strokeColor="#379683"
+            />
+          </div>
+          <div className="questions__text">
+            {questions && questions[currentQuestion].question}
+          </div>
+          <div className="questions__answers">
+            {questions &&
+              questions[currentQuestion].answerOptions.map((answerOption) => (
+                <button
+                  className="questions__btn"
+                  onClick={() =>
+                    handleAnswerOptionClick(answerOption.isCorrect)
+                  }
+                >
+                  {answerOption.answer}
+                </button>
+              ))}
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 export default Questions;
