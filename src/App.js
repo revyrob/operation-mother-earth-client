@@ -6,6 +6,7 @@ import { useState } from "react";
 import Header from "./components/Header/Header";
 import HomePage from "./pages/HomePage";
 import Game from "./pages/Game";
+import Levels from "./pages/Levels";
 import Questions from "./pages/Questions";
 import Recycling from "./pages/Recycling";
 import RecyclingForm from "./pages/RecyclingForm";
@@ -31,6 +32,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
 
         <Route path="/game" element={<Game nameHandler={setNameHandler} />} />
+        <Route path="/game/level" element={<Levels />} />
         <Route path="/game/questions" element={<Questions />} />
 
         <Route path="/recycling" element={<Recycling />} />

@@ -59,7 +59,7 @@ function Game() {
     if (nextStoryboard < story.length) {
       setCurrentStoryboard(nextStoryboard);
     } else {
-      navigate("/game/questions");
+      navigate("/game/level");
     }
   };
   //create onclick back goes to the previous page

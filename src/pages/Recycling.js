@@ -3,7 +3,7 @@ import recycling from "../assets/icons/recycling-icon.svg";
 import ButtonBar from "../components/ButtonBar/ButtonBar";
 // import Map from "../components/Map/Map";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLoadScript } from "@react-google-maps/api";
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
 import axios from "axios";
