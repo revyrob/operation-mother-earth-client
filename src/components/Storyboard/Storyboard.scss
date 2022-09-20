@@ -22,6 +22,12 @@
         font-size: 25px;
         margin: 0 1.5rem;
     }
+    &__bottom {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
 }
 .direction {
     display: flex;

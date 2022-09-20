@@ -15,7 +15,7 @@ function NameGame({ nameHandler }) {
       />
       <img className="namegame__img" src={namePic} alt="mother earth" />
       <form
-        method="post"
+        method="get"
         // className="formField__wrapper--mobile"
         onSubmit={nameHandler}
       >

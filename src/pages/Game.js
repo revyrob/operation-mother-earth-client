@@ -11,13 +11,13 @@ function Game() {
   //sets the name for user
   const setNameHandler = (e) => {
     const userName = e.target.name.value;
-    console.log(userName);
     //??I am not sure why this isn't testing??
-    if (typeof userName === "string" || userName instanceof String) {
+    if (userName === "") {
+      alert("Enter a username");
+      e.target.reset();
+    } else {
       setName(userName);
       setStoryGame(true);
-    } else {
-      alert("Enter a username");
     }
   };
 
@@ -78,12 +78,13 @@ function Game() {
     <>
       {showStory ? (
         <Storyboard
-          // img={story[currentStoryboard].image}
+          img={`http://localhost:8080/${story[currentStoryboard].image}`}
           //how to set name in here for first storyboard
           alt={story[currentStoryboard].alt}
           text={story[currentStoryboard].text}
           clickHome={clickHome}
           clickForward={clickForward}
+          name={name}
         />
       ) : (
         <NameGame nameHandler={setNameHandler} />

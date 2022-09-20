@@ -8,21 +8,27 @@ function Storyboard({ img, text, alt, clickHome, clickForward }) {
       <div className="storyboard__img--div">
         <img className="storyboard__img" src={img} alt={alt} />
       </div>
-      <div className="storyboard__text--div">
-        <p className="storyboard__text">{text}</p>
-      </div>
-      <div className="direction">
-        <button onClick={clickHome} className="direction__back">
-          <img className="direction__icon" src={homeBtn} alt={"back button"} />
-        </button>
+      <div className="storyboard__bottom">
+        <div className="storyboard__text--div">
+          <p className="storyboard__text">{text}</p>
+        </div>
+        <div className="direction">
+          <button onClick={clickHome} className="direction__back">
+            <img
+              className="direction__icon"
+              src={homeBtn}
+              alt={"back button"}
+            />
+          </button>
 
-        <button onClick={clickForward} className="direction__forward">
-          <img
-            className="direction__icon"
-            src={forwardBtn}
-            alt={"forward button"}
-          />
-        </button>
+          <button onClick={clickForward} className="direction__forward">
+            <img
+              className="direction__icon"
+              src={forwardBtn}
+              alt={"forward button"}
+            />
+          </button>
+        </div>
       </div>
     </section>
   );

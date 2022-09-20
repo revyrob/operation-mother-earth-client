@@ -110,6 +110,9 @@ a:active {
     margin: 1rem 0;
     background-color: $color-accent-sec;
     border: 1px solid $color-dark;
+    &--correct {
+      background-color: green;
+    }
     &:hover {
       color: $color-accent-sec;
       background-color: $color-dark;
