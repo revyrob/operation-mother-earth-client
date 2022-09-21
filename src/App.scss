@@ -145,19 +145,24 @@ a:active {
   &__img {
     width: 75px;
     height: 75px;
+    
     &--div{
       display: flex;
       justify-content: space-between;
-      padding: 0 3rem;
     }
   }
   &__btn {
+    width: 100%;
     border: none;
     background-color: white;
+    padding-top: .5rem;
   }
  
 }
 .selected {
-  background-color: $color-dark;
-
+  background-color: $color-dark-transparent;
+  border: none;
+}
+.selectedInfo {
+  display: none;
 }

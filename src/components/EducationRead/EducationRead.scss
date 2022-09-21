@@ -1,0 +1,26 @@
+@use '../../styles/variables' as *;
+
+.educationRead{
+    &__header {
+        background-color: $color-dark-transparent;
+        color: white;
+        font-size: 24px;
+        padding: 1rem 0;
+        font-family: $font-primary;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    &__div {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 1.5rem;
+        border: 1px solid black;
+        border-radius: 30px;
+        margin-bottom: 2rem;
+    }
+    &__text{
+        font-size: 20px;
+        line-height: 32px;
+    }
+}
