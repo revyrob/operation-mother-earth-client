@@ -9,99 +9,81 @@ import Finalokay from "../components/Finalokay/Finalokay";
 import Finalexcellent from "../components/Finalexcellent/Finalexcellent";
 import { useNavigate } from "react-router-dom";
 
-function Questions() {
-  //use sessions storage for level
-  const [questions, setQuestions] = useState("");
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [level, setLevel] = useState(0);
-  const [score, setScore] = useState(0);
-  const [showScore, setShowScore] = useState(false);
-  const [answerSelected, setAnswerSelected] = useState(true);
-  const [answerCorrect, setAnswerCorrect] = useState(false);
+function Questions2() {
+  // const [name, setName] = useState(" ");
+  //   get questions and answer for game
   let navigate = useNavigate();
 
   const getQuestions = () => {
     axios
       .get(`http://localhost:8080/gameQuestions`)
       .then((response) => {
+        console.log(response);
         setQuestions(response.data);
       })
       .catch((err) => console.log(err));
   };
 
   //get level by seeing if the current questions is divisble by 3
-  const getLevel = () => {
-    if ((currentQuestion + 1) / 3) {
-      setLevel((currentQuestion + 1) / 3);
-    }
-  };
+  //   const getLevel = () => {
+  //     if ((currentQuestion + 1) / 3) {
+  //       setLevel((currentQuestion + 1) / 3);
+  //     }
+  //   };
 
   const handleAnswerOptionClick = (isCorrect, points) => {
-    let answerTimer;
-    let questionTimer;
-
-    setAnswerSelected(true);
-
     if (isCorrect) {
       setScore(score + points);
     }
-    console.log(`is correct is json ${isCorrect}`);
-
-    if (answerSelected === isCorrect) {
-      setAnswerCorrect(true);
-      if (!answerTimer) {
-        answerTimer = setTimeout(() => {
-          setAnswerCorrect(false);
-          // setAnswerSelected(false);
-        }, 200);
-      } else {
-        clearTimeout(answerTimer);
-      }
-    } else {
-      setAnswerCorrect(false);
-    }
-    console.log(`is the correct ansewr ${answerSelected}`);
-    console.log(`testing ${answerCorrect}`);
+    //if selected answer is correct add point and the button turns green
+    //else if selected answer is wrong don't add point and button turns red and
+    //correct answer turns green
     const nextQuestion = currentQuestion + 1;
-    // if (
-    //   nextQuestion / 3 === 1 ||
-    //   nextQuestion / 3 === 2 ||
-    //   nextQuestion / 3 === 3
-    // ) {
-    //   setCurrentQuestion(nextQuestion);
-    //   // console.log(nextQuestion);
-    //   // navigate("/game/level", nextQuestion);
-    // }
+    console.log(nextQuestion);
+    console.log(currentQuestion);
+    if (
+      nextQuestion / 3 === 1 ||
+      nextQuestion / 3 === 2 ||
+      nextQuestion / 3 === 3
+    ) {
+      setCurrentQuestion(nextQuestion);
+      navigate("/game/level");
+    }
     // if (currentQuestion % 2 && currentQuestion !== 0) {
     //   <Fact />;
     //   setCurrentQuestion(nextQuestion);
     // }
     if (nextQuestion < questions.length) {
-      if (!questionTimer) {
-        questionTimer = setTimeout(() => {
-          setCurrentQuestion(nextQuestion);
-        }, 1000);
-      } else {
-        clearTimeout(questionTimer);
-      }
+      setCurrentQuestion(nextQuestion);
     } else {
       setShowScore(true);
+      // (({ score } / 150) * 100 > 50) : <Improve
+      // if  {
+      //   <Improve />;
+      // } else if (({ score } / 150) * 100 > 50) {
+      //   <Okay />;
+      // } else {
+      //   <Excellent />;
+      // }
     }
   };
 
   useEffect(() => {
     getQuestions();
-    getLevel();
+    // getLevel();
   }, []);
 
-  useEffect(() => {
-    console.log("answerSelected", answerSelected);
-  }, [answerSelected]);
+  const [questions, setQuestions] = useState("");
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [level, setLevel] = useState(0);
+  const [correct, setCorrect] = useState(false);
+  const [score, setScore] = useState(0);
+  const [bg, setBg] = useState("");
+  const [showScore, setShowScore] = useState(false);
+  console.log(score);
 
-  // console.log(score);
   //show three levels equally when question is divisble by 3
   //show three facts when the question is divisble by 2
-
   return (
     <>
       {showScore ? (
@@ -129,18 +111,15 @@ function Questions() {
               questions[currentQuestion].answerOptions.map((answerOption) => (
                 <button
                   key={uuidv4()}
+                  className="questions__btn"
                   onClick={() =>
-                    handleAnswerOptionClick(
-                      answerOption.isCorrect,
-                      answerOption.points
-                    )
+                    setTimeout(() => {
+                      handleAnswerOptionClick(
+                        answerOption.isCorrect,
+                        answerOption.points
+                      );
+                    }, "500")
                   }
-                  className={
-                    answerSelected && answerCorrect && answerOption.isCorrect
-                      ? "questions__btn--correct"
-                      : "questions__btn"
-                  }
-
                   // className={`questions__btn ${
                   //   answerOption.isCorrect === true && "questions__btn--correct"
                   // } `}
@@ -154,4 +133,4 @@ function Questions() {
     </>
   );
 }
-export default Questions;
+export default Questions2;

@@ -1,7 +1,7 @@
 import Level from "../components/Level/Level";
 import { Link } from "react";
 
-function Levels() {
-  return <Level level={"1"} />;
+function Levels({ nextQueston }) {
+  return <Level level={nextQueston} />;
 }
 export default Levels;
