@@ -3,6 +3,8 @@ import play from "../assets/icons/play-icon.svg";
 import { useState, useEffect } from "react";
 import EducationRead from "../components/EducationRead/EducationRead";
 import EducationPlay from "../components/EducationPlay/EducationPlay";
+import Vids from "../components/Vids/Vids";
+import photo from "../assets/images/filler-vid.png";
 
 function Education() {
   const [selected, setSelected] = useState(false);

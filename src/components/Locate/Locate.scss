@@ -1,0 +1,13 @@
+.locate {
+    position: absolute;
+    bottom: 1rem;
+    left: 2rem;
+    background-color: transparent;
+    border: none;
+    z-index: 10;
+    &__img {
+        width: 30px;
+        cursor: pointer;
+        background-color: none;
+    }
+}

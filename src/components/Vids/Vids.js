@@ -1,14 +1,16 @@
-import vid from "../../assets/images/robot.png";
+import "./Vids.scss";
 
-function Vids() {
+function Vids({ image, title, category }) {
   return (
-    <div className="vids">
-      <img src={vid} alt={"robo"} />
-      <div className="vids__info">
-        <h3 className="vids__title">Title</h3>
-        <p className="vids__category">category</p>
+    <article className="vids">
+      <div className="vids__img--div">
+        <img className="vids__img" src={image} alt={title} />
       </div>
-    </div>
+      <div className="vids__infoBar">
+        <h3 className="vids__infoBar--title">{title}</h3>
+        <p className="vids__infoBar--author">{category}</p>
+      </div>
+    </article>
   );
 }
 export default Vids;
