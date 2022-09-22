@@ -17,20 +17,72 @@ import { useCallback, useRef } from "react";
 export default function Recycling() {
   //state for map list
   const [mapList, setMapList] = useState(null);
-  //state for markers that come up
-  const [markers, setMarkers] = useState(null);
+  // let [userLat, setUserLat] = useState();
+  // let [userLng, setUserLng] = useState();
 
+  // function getLocation() {
+  //   if (navigator.geolocation) {
+  //     navigator.geolocation.getCurrentPosition(showPosition);
+  //   } else {
+  //     alert("Geolocation is not supported by this browser.");
+  //   }
+  // }
+
+  // function showPosition(position) {
+  //   console.log(position.coords.latitude);
+  //   console.log(position.coords.longitude);
+  // }
+
+  // getLocation();
+
+  // const userLocation = () => {
+  //   navigator.geolocation.getCurrentPosition((position) => {
+  //     // console.log(position.coords.longitude);
+  //     let useLat = position.coords.latitude;
+  //     let userLng = position.coords.longitude;
+  //     // console.log(userLat);
+  //     // console.log(userLng);
+
+  //     axios
+  //       .post(
+  //         `http://localhost:8080/recycling/
+  //     `,
+  //         {
+  //           //need to change this to geolocation
+  //           lat: "49.2157186",
+  //           lon: "-123.0922283",
+  //         }
+  //       )
+  //       .then((response) => {
+  //         console.log(response);
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   });
+  // };
+
+  // userLocation();
   //get recycling centers data, pass it to the Hook
   //and pass it to the MapList
   const getMapInfo = () => {
-    axios
-      .get(`http://localhost:8080/recycling`)
-      .then((response) => {
-        setMapList(response.data);
-        setMarkers(response.data);
-        // console.log(response);
-      })
-      .catch((err) => console.log(err));
+    navigator.geolocation.getCurrentPosition((position) => {
+      // console.log(position.coords.longitude);
+      const userLat = position.coords.latitude;
+      const userLng = position.coords.longitude;
+
+      console.log(userLat);
+      axios
+        .get(`http://localhost:8080/recycling`, {
+          params: {
+            location: { userLat, userLng },
+          },
+        })
+        .then((response) => {
+          setMapList(response.data);
+        })
+        .catch((err) => console.log(err));
+    });
   };
 
   useEffect(() => {
@@ -76,19 +128,19 @@ function Map({ mapList }) {
   // }, []);
 
   //pan to in map
-  const panTo = useCallback(({ lat, lng }) => {
-    console.log("lat", lat);
-    console.log("lng", lng);
-    if (lat && lng) {
-      mapRef.current.panTo({ lat, lng });
-    }
+  // const panTo = useCallback(({ lat, lng }) => {
+  //   console.log("lat", lat);
+  //   console.log("lng", lng);
+  //   if (lat && lng) {
+  //     mapRef.current.panTo({ lat, lng });
+  //   }
 
-    // mapRef.current.setZoom(14);
-  }, []);
+  // mapRef.current.setZoom(14);
+  // }, []);
 
   return (
     <>
-      <Locate panTo={panTo} />
+      {/* <Locate panTo={panTo} /> */}
       <GoogleMap
         ref={mapRef}
         zoom={10}
@@ -140,60 +192,38 @@ function Map({ mapList }) {
   );
 }
 
-function Locate({ panTo }) {
-  let [userLat, setUserLat] = useState(null);
-  let [userLng, setUserLng] = useState(null);
+// function Locate({ panTo }) {
+//   let [userLat, setUserLat] = useState(null);
+//   let [userLng, setUserLng] = useState(null);
 
-  // this can post the lat lon to the backend so I get the correct data back
-  // console.log(userLat);
-  // const userLocation = () => {
-  //   axios
-  //     .post(
-  //       `http://localhost:8080/recycling/
-  //     `,
-  //       {
-  //         //need to change this to geolocation
-  //         lat: { userLat },
-  //         lon: { userLng },
-  //       }
-  //     )
-  //     .then((response) => {
-  //       console.log(response);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
+//   // this can post the lat lon to the backend so I get the correct data back
+//   // console.log(userLat);
 
-  // useEffect(() => {
-  //   userLocation();
-  // }, []);
-
-  return (
-    <button
-      className="locate"
-      onClick={() => {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            // console.log(position.coords.longitude);
-            setUserLat(position.coords.latitude);
-            setUserLng(position.coords.longitude);
-            // console.log(userLat);
-            // console.log(userLng);
-            panTo({
-              lat: position.coords.latitude,
-              lng: position.coords.longitude,
-            });
-          },
-          () => null
-        );
-      }}
-    >
-      <img
-        className="locate__img"
-        src={compass}
-        alt={"compass icon - locate me"}
-      />
-    </button>
-  );
-}
+//   return (
+//     <button
+//       className="locate"
+//       onClick={() => {
+//         navigator.geolocation.getCurrentPosition(
+//           (position) => {
+//             // console.log(position.coords.longitude);
+//             setUserLat(position.coords.latitude);
+//             setUserLng(position.coords.longitude);
+//             // console.log(userLat);
+//             // console.log(userLng);
+//             panTo({
+//               lat: position.coords.latitude,
+//               lng: position.coords.longitude,
+//             });
+//           },
+//           () => null
+//         );
+//       }}
+//     >
+//       <img
+//         className="locate__img"
+//         src={compass}
+//         alt={"compass icon - locate me"}
+//       />
+//     </button>
+//   );
+// }
