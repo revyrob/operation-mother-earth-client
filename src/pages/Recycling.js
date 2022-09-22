@@ -17,52 +17,7 @@ import { useCallback, useRef } from "react";
 export default function Recycling() {
   //state for map list
   const [mapList, setMapList] = useState(null);
-  // let [userLat, setUserLat] = useState();
-  // let [userLng, setUserLng] = useState();
 
-  // function getLocation() {
-  //   if (navigator.geolocation) {
-  //     navigator.geolocation.getCurrentPosition(showPosition);
-  //   } else {
-  //     alert("Geolocation is not supported by this browser.");
-  //   }
-  // }
-
-  // function showPosition(position) {
-  //   console.log(position.coords.latitude);
-  //   console.log(position.coords.longitude);
-  // }
-
-  // getLocation();
-
-  // const userLocation = () => {
-  //   navigator.geolocation.getCurrentPosition((position) => {
-  //     // console.log(position.coords.longitude);
-  //     let useLat = position.coords.latitude;
-  //     let userLng = position.coords.longitude;
-  //     // console.log(userLat);
-  //     // console.log(userLng);
-
-  //     axios
-  //       .post(
-  //         `http://localhost:8080/recycling/
-  //     `,
-  //         {
-  //           //need to change this to geolocation
-  //           lat: "49.2157186",
-  //           lon: "-123.0922283",
-  //         }
-  //       )
-  //       .then((response) => {
-  //         console.log(response);
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //       });
-  //   });
-  // };
-
-  // userLocation();
   //get recycling centers data, pass it to the Hook
   //and pass it to the MapList
   const getMapInfo = () => {
@@ -117,30 +72,11 @@ function Map({ mapList }) {
   const [selectedMarker, setSelectedMarker] = useState();
   let [infoOpen, setInfoOpen] = useState(false);
 
-  // useEffect(() => {
-  //   console.log(selectedMarker);
-  // }, [selectedMarker]);
-
   //use refs for map
   const mapRef = useRef();
-  // const onMapLoad = useCallback((map) => {
-  //   mapRef.current = map;
-  // }, []);
-
-  //pan to in map
-  // const panTo = useCallback(({ lat, lng }) => {
-  //   console.log("lat", lat);
-  //   console.log("lng", lng);
-  //   if (lat && lng) {
-  //     mapRef.current.panTo({ lat, lng });
-  //   }
-
-  // mapRef.current.setZoom(14);
-  // }, []);
 
   return (
     <>
-      {/* <Locate panTo={panTo} /> */}
       <GoogleMap
         ref={mapRef}
         zoom={10}
@@ -150,7 +86,6 @@ function Map({ mapList }) {
         {mapList &&
           mapList.map((item) => (
             <Marker
-              // onLoad={onLoad}
               key={uuidv4()}
               position={{
                 lat: item.geometry.location.lat,
@@ -176,7 +111,6 @@ function Map({ mapList }) {
             }}
             onCloseClick={() => {
               console.log("window closed");
-              // setSelectedMarker(null);
               setInfoOpen(false);
               console.log(selectedMarker);
             }}
@@ -191,39 +125,3 @@ function Map({ mapList }) {
     </>
   );
 }
-
-// function Locate({ panTo }) {
-//   let [userLat, setUserLat] = useState(null);
-//   let [userLng, setUserLng] = useState(null);
-
-//   // this can post the lat lon to the backend so I get the correct data back
-//   // console.log(userLat);
-
-//   return (
-//     <button
-//       className="locate"
-//       onClick={() => {
-//         navigator.geolocation.getCurrentPosition(
-//           (position) => {
-//             // console.log(position.coords.longitude);
-//             setUserLat(position.coords.latitude);
-//             setUserLng(position.coords.longitude);
-//             // console.log(userLat);
-//             // console.log(userLng);
-//             panTo({
-//               lat: position.coords.latitude,
-//               lng: position.coords.longitude,
-//             });
-//           },
-//           () => null
-//         );
-//       }}
-//     >
-//       <img
-//         className="locate__img"
-//         src={compass}
-//         alt={"compass icon - locate me"}
-//       />
-//     </button>
-//   );
-// }
