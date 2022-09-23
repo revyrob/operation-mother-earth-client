@@ -7,7 +7,7 @@ function NamePopup() {
 
   const handleClose = () => setShow(false);
   return (
-    <Modal onHide={handleClose}>
+    <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
         <Modal.Title>Modal heading</Modal.Title>
       </Modal.Header>
