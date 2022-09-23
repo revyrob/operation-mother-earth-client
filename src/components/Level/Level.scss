@@ -1,0 +1,24 @@
+@use '../../styles/variables' as *;
+
+.level {
+    background-color: $color-dark-transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 76vh;
+    &__img {
+        width: 50vw;
+        height: 25vh;
+        margin: 2rem;
+        &:hover {
+            cursor:pointer;
+        }
+    }
+    &__text {
+        position: absolute;
+        align-items: center;
+        font-size: 30px;
+        color: white;
+    }
+}

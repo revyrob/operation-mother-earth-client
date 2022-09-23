@@ -64,16 +64,6 @@ a:active {
   justify-content: center;
 }
 
-.game {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 1rem 2rem;
-  &__img {
-    margin: 1.5rem 0;
-  }
-}
 
 .map__google{
   align-items: center;
@@ -83,4 +73,110 @@ a:active {
   padding: .5rem;
   margin: 0 1rem ;
   
+}
+
+.questions {
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  align-items: center;
+  height: 80vh;
+  &__progressBar{
+    margin-top: 10%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &__text{
+    margin: 10% 0;
+    font-size: 24px;
+    line-height: 35px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    
+  }
+  &__answers{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+  }
+  &__btn {
+    padding: .5rem 2rem;
+    font-size: 20px;
+    border-radius: 30px;
+    margin: 1rem 0;
+    background-color: $color-accent-sec;
+    border: 1px solid $color-dark;
+    &--correct {
+      padding: .5rem 2rem;
+      font-size: 20px;
+      border-radius: 30px;
+      margin: 1rem 0;
+      background-color: green;
+      border: 1px solid $color-dark;
+    }
+    &--wrong{
+      background-color: red;
+      padding: .5rem 2rem;
+      font-size: 20px;
+      border-radius: 30px;
+      margin: 1rem 0;
+      border: 1px solid $color-dark;
+    }
+    &:hover {
+      color: $color-accent-sec;
+      background-color: red;
+      
+    }
+  }
+}
+.education {
+  display: flex;
+  flex-direction: column;
+  &__title {
+    font-size: 24px;
+    margin: 1.5rem 0;
+    font-family: $font-primary;
+    text-align: center;
+  }
+  &__img {
+    width: 75px;
+    height: 75px;
+    
+    &--div{
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__btn {
+    width: 100%;
+    border: none;
+    background-color: white;
+    padding-top: .5rem;
+  }
+ 
+}
+.selected {
+  background-color: $color-dark-transparent;
+  border: none;
+}
+.selectedInfo {
+  display: none;
+}
+
+.locate {
+  position: absolute;
+  bottom: 1rem;
+  left: 2rem;
+  background-color: transparent;
+  border: none;
+  z-index: 10;
+  &__img {
+      width: 30px;
+      cursor: pointer;
+      background-color: none;
+  }
 }

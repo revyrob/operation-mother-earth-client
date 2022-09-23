@@ -1,51 +1,47 @@
 import TitleHeader from "../components/TitleHeader/TitleHeader";
 import recycling from "../assets/icons/recycling-icon.svg";
 import ButtonBar from "../components/ButtonBar/ButtonBar";
-// import Map from "../components/Map/Map";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLoadScript } from "@react-google-maps/api";
-import { GoogleMap, LoadScript } from "@react-google-maps/api";
+import { GoogleMap, InfoWindow, Marker } from "@react-google-maps/api";
 import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 
-import MapList from "../components/MapList/MapList";
+import PracticeForm from "../components/PracticeForm/PracticeForm";
+import AddCenter from "../components/AddCenter/AddCenter";
+import { useRef } from "react";
 
 export default function Recycling() {
   //state for map list
   const [mapList, setMapList] = useState(null);
-  //state for markers that come up
-  const [markers, setMarkers] = useState(null);
+  const [currentLocation, setCurrentLocation] = useState({
+    lat: 49.0781,
+    lng: -117.8,
+  });
 
   //get recycling centers data, pass it to the Hook
   //and pass it to the MapList
   const getMapInfo = () => {
-    axios
-      .get(`http://localhost:8080/recycling`)
-      .then((response) => {
-        setMapList(response.data);
-        setMarkers(response.data);
-        // console.log(response);
-      })
-      .catch((err) => console.log(err));
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const userLat = position.coords.latitude;
+        const userLng = position.coords.longitude;
+        setCurrentLocation({ lat: userLat, lng: userLng });
+
+        axios
+          .get(`http://localhost:8080/recycling?location=${userLat},${userLng}`)
+          .then((response) => {
+            setMapList(response.data);
+          })
+          .catch((err) => console.log(err));
+      });
+    } else {
+      //alert!
+      alert(`Geolocation is not supported by your browser.`);
+    }
   };
 
-  // this can post the lat lon to the backend so I get the correct data back
-  // const mapTest = () => {
-  //   axios
-  //     .post(`http://localhost:8080/recycling/test`, {
-  //       //need to change this to geolocation
-  //       lat: "49.28507657283974",
-  //       lon: "-123.11461581337777",
-  //     })
-  //     .then((response) => {
-  //       console.log(response);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-
-  //work on getting mocktail data once server is running
   useEffect(() => {
     getMapInfo();
   }, []);
@@ -65,20 +61,72 @@ export default function Recycling() {
         alt={"recycling icon"}
         text={"E-Waste Recycling Near You"}
       />
-      <ButtonBar text={"+ Add a Center"} />
-      <Map />
-      <MapList mapList={mapList} />
+      <ButtonBar text={"Center's Around Me"} />
+      <Map mapList={mapList} currentLocation={currentLocation} />
+      {/* <AddCenter /> */}
+      {/* <MapList mapList={mapList} /> */}
+      <PracticeForm />
     </section>
   );
 }
 
 //I had trouble making it into it's own component it is now here
-function Map() {
+function Map({ mapList, currentLocation }) {
+  // console.log(mapList);
+  console.log(currentLocation);
+  const [selectedMarker, setSelectedMarker] = useState();
+  let [infoOpen, setInfoOpen] = useState(false);
+
+  //use refs for map
+  const mapRef = useRef();
+
   return (
-    <GoogleMap
-      zoom={10}
-      center={{ lat: 49.2786062, lng: -123.0999113 }}
-      mapContainerClassName="map__google"
-    ></GoogleMap>
+    <>
+      <GoogleMap
+        ref={mapRef}
+        zoom={13}
+        center={{ lat: currentLocation.lat, lng: currentLocation.lng }}
+        mapContainerClassName="map__google"
+      >
+        {mapList &&
+          mapList.map((item) => (
+            <Marker
+              key={uuidv4()}
+              position={{
+                lat: item.geometry.location.lat,
+                lng: item.geometry.location.lng,
+              }}
+              onClick={() => {
+                setSelectedMarker(item);
+                setInfoOpen(true);
+                console.log(selectedMarker);
+              }}
+              icon={{
+                url: "/recycle-pin.png",
+                scaledSize: new window.google.maps.Size(25, 25),
+              }}
+            />
+          ))}
+
+        {selectedMarker && infoOpen && (
+          <InfoWindow
+            position={{
+              lat: selectedMarker.geometry.location.lat,
+              lng: selectedMarker.geometry.location.lng,
+            }}
+            onCloseClick={() => {
+              console.log("window closed");
+              setInfoOpen(false);
+              console.log(selectedMarker);
+            }}
+          >
+            <div>
+              <h3>{selectedMarker.name}</h3>
+              <p>{selectedMarker.formatted_address}</p>
+            </div>
+          </InfoWindow>
+        )}
+      </GoogleMap>
+    </>
   );
 }
