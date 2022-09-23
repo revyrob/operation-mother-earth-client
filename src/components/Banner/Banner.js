@@ -27,13 +27,13 @@ function Banner() {
         />
       </Link>
 
-      <Link to={"/buySell"}>
+      {/* <Link to={"/buySell"}>
         <ButtonBig
           img={buySellIcon}
           alt={"buy and sell icon"}
           text={"Buy & Sell"}
         />
-      </Link>
+      </Link> */}
 
       <Link to={"/education"}>
         <ButtonBig

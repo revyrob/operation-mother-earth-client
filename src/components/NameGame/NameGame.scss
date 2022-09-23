@@ -6,22 +6,28 @@
     justify-content: center;
     align-items: center;
     margin: 1rem 2rem;
+    height: 60%;
     &__div {
         background-color: $color-dark-transparent;
         border-radius: 30px;
-        width: 90vw;
+        width: 70vw;
         height: 100px;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 3rem;
+        // margin-bottom: 3rem;
+        &--enter {
+            display: flex;
+            justify-content:space-between;
+            align-items:center;
+        }
     }
     &__input {
         background-color: white;
         border-radius: 20px;
-        width: 80vw;
+        width: 60vw;
         height: 80px;
-        font-size: 40px;
+        font-size: 30px;
         padding-left: 1rem;
     }
     &__label{
@@ -34,10 +40,12 @@
     &__img {
         margin: 1.5rem 0;
     }
+    &__form {
+        height: 20%;
+    }
     &__btn {
         background-color: white;
         border: none;
-       
         &--img {
             height: 75px;
             width: 75px;
