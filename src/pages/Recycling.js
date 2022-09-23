@@ -1,9 +1,6 @@
 import TitleHeader from "../components/TitleHeader/TitleHeader";
 import recycling from "../assets/icons/recycling-icon.svg";
 import ButtonBar from "../components/ButtonBar/ButtonBar";
-// import Map from "../components/Map/Map";
-
-import compass from "../assets/icons/compass.png";
 
 import { useEffect, useState } from "react";
 import { useLoadScript } from "@react-google-maps/api";
@@ -11,33 +8,38 @@ import { GoogleMap, InfoWindow, Marker } from "@react-google-maps/api";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 
-import MapList from "../components/MapList/MapList";
-import { useCallback, useRef } from "react";
+import PracticeForm from "../components/PracticeForm/PracticeForm";
+import AddCenter from "../components/AddCenter/AddCenter";
+import { useRef } from "react";
 
 export default function Recycling() {
   //state for map list
   const [mapList, setMapList] = useState(null);
+  const [currentLocation, setCurrentLocation] = useState({
+    lat: 49.0781,
+    lng: -117.8,
+  });
 
   //get recycling centers data, pass it to the Hook
   //and pass it to the MapList
   const getMapInfo = () => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      // console.log(position.coords.longitude);
-      const userLat = position.coords.latitude;
-      const userLng = position.coords.longitude;
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const userLat = position.coords.latitude;
+        const userLng = position.coords.longitude;
+        setCurrentLocation({ lat: userLat, lng: userLng });
 
-      console.log(userLat);
-      axios
-        .get(`http://localhost:8080/recycling`, {
-          params: {
-            location: { userLat, userLng },
-          },
-        })
-        .then((response) => {
-          setMapList(response.data);
-        })
-        .catch((err) => console.log(err));
-    });
+        axios
+          .get(`http://localhost:8080/recycling?location=${userLat},${userLng}`)
+          .then((response) => {
+            setMapList(response.data);
+          })
+          .catch((err) => console.log(err));
+      });
+    } else {
+      //alert!
+      alert(`Geolocation is not supported by your browser.`);
+    }
   };
 
   useEffect(() => {
@@ -60,15 +62,18 @@ export default function Recycling() {
         text={"E-Waste Recycling Near You"}
       />
       <ButtonBar text={"+ Add a Center"} />
-      <Map mapList={mapList} />
-      <MapList mapList={mapList} />
+      <Map mapList={mapList} currentLocation={currentLocation} />
+      {/* <AddCenter /> */}
+      {/* <MapList mapList={mapList} /> */}
+      <PracticeForm />
     </section>
   );
 }
 
 //I had trouble making it into it's own component it is now here
-function Map({ mapList }) {
+function Map({ mapList, currentLocation }) {
   // console.log(mapList);
+  console.log(currentLocation);
   const [selectedMarker, setSelectedMarker] = useState();
   let [infoOpen, setInfoOpen] = useState(false);
 
@@ -79,8 +84,8 @@ function Map({ mapList }) {
     <>
       <GoogleMap
         ref={mapRef}
-        zoom={10}
-        center={{ lat: 49.0781, lng: -117.8 }}
+        zoom={13}
+        center={{ lat: currentLocation.lat, lng: currentLocation.lng }}
         mapContainerClassName="map__google"
       >
         {mapList &&
