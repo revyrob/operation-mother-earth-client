@@ -3,18 +3,32 @@ import { useState, useEffect, Link } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Storyboard from "../components/Storyboard/Storyboard";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 
 function Game() {
+  const [show, setShow] = useState(false);
+  const [name, setName] = useState("");
+  const [showStory, setStoryGame] = useState(false);
+  const [story, setStory] = useState(" ");
+  const [currentStoryboard, setCurrentStoryboard] = useState(0);
+
+  sessionStorage.setItem("name", name);
   // const [name, setName] = useState(" ");
   let navigate = useNavigate();
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   //sets the name for user
   const setNameHandler = (e) => {
     const userName = e.target.name.value;
+    e.preventDefault();
     //??I am not sure why this isn't testing??
     if (userName === "") {
-      alert("Enter a username");
-      e.target.reset();
+      setShow(true);
+      // alert("Enter a username");
+      e.preventDefault();
     } else {
       setName(userName);
       setStoryGame(true);
@@ -26,14 +40,10 @@ function Game() {
     axios
       .get(`http://localhost:8080/gameQuestions`)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
       })
       .catch((err) => console.log(err));
   };
-
-  useEffect(() => {
-    getQuestions();
-  }, []);
 
   const getStory = () => {
     axios
@@ -46,11 +56,9 @@ function Game() {
   };
 
   useEffect(() => {
+    getQuestions();
     getStory();
   }, []);
-
-  const [story, setStory] = useState(" ");
-  const [currentStoryboard, setCurrentStoryboard] = useState(0);
 
   //create on click forward goes to the next page
   //it also goes to the next storyboard info
@@ -62,18 +70,29 @@ function Game() {
       navigate("/game/level");
     }
   };
+
   //create onclick back goes to the previous page
   //goes back in storyboard info
   const clickHome = () => {
     navigate("/");
   };
 
-  const [name, setName] = useState("");
-  const [showStory, setStoryGame] = useState(false);
-
-  console.log(name);
-
-  //write an if statement if there is a name in the state go to the questions
+  //style for modal
+  // const bg = {
+  //   overlay: {
+  //     background: "rgba(19, 24, 44, .6)",
+  //   },
+  //   content: {
+  //     width: "42rem",
+  //     height: "16.375rem",
+  //     margin: "5.3125rem auto 0",
+  //     display: "flex",
+  //     flexDirection: "column",
+  //     justifyContent: "space-between",
+  //     boxShadow: "0px 2px 5px rgba(19, 24, 44, 0.1)",
+  //     borderRadius: "3px",
+  //   },
+  // };
   return (
     <>
       {showStory ? (
@@ -87,7 +106,24 @@ function Game() {
           name={name}
         />
       ) : (
-        <NameGame nameHandler={setNameHandler} />
+        <>
+          <NameGame nameHandler={setNameHandler} />
+          <Modal show={show} onHide={handleShow}>
+            <Modal.Header closeButton>
+              <Modal.Title>Oops!</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>You have not entered a username.</Modal.Body>
+            <Modal.Footer>
+              {/* <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button> */}
+              <Button variant="primary" onClick={handleClose}>
+                Got it👍
+              </Button>
+            </Modal.Footer>
+          </Modal>
+          ;
+        </>
       )}
     </>
   );

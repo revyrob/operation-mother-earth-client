@@ -61,7 +61,7 @@ export default function Recycling() {
         alt={"recycling icon"}
         text={"E-Waste Recycling Near You"}
       />
-      <ButtonBar text={"+ Add a Center"} />
+      <ButtonBar text={"Center's Around Me"} />
       <Map mapList={mapList} currentLocation={currentLocation} />
       {/* <AddCenter /> */}
       {/* <MapList mapList={mapList} /> */}

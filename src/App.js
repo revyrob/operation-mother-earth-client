@@ -9,11 +9,10 @@ import Game from "./pages/Game";
 import Levels from "./pages/Levels";
 import Questions from "./pages/Questions";
 import Recycling from "./pages/Recycling";
-import RecyclingForm from "./pages/RecyclingForm";
 import BuySell from "./pages/BuySell";
 import Education from "./pages/Education";
 import Footer from "./components/Footer/Footer";
-
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 function App() {
   const [name, setName] = useState(" ");
 
@@ -36,7 +35,6 @@ function App() {
         <Route path="/game/questions" element={<Questions />} />
 
         <Route path="/recycling" element={<Recycling />} />
-        <Route path="/recycling/new" element={<RecyclingForm />} />
 
         <Route path="/education" element={<Education />} />
 
