@@ -84,8 +84,8 @@ a:active {
   &__progressBar{
     margin-top: 10%;
     width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    // margin-left: auto;
+    // margin-right: auto;
   }
   &__text{
     margin: 10% 0;
@@ -185,28 +185,16 @@ a:active {
   }
 }
 
-// .loader {
-//   position: relative;
-//   top: 3.125rem;
-//   margin: auto;
-//   border: 20px solid $color-dark;
-//   border-radius: 50%;
-//   border-top: 20px solid $color-dark-sec;
-//   width: 12.5rem;
-//   height: 12.5rem;
-//   animation: spinner 4s linear infinite;
-// }
-// @keyframes spinner {
-//   0% { transform: rotate(0deg); }
-//   100% { transform: rotate(360deg); }
-// }
-svg {
-  display:block;
-  width:258px;
-  height:258px;
-  position:absolute;
-  left:50%;
-  top:50%;
+.loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height:80vh;
+}
+
+.loader__svg {
+  width:90%;
   transform:translate(-50%,-50%);
 }
 

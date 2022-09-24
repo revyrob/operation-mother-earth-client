@@ -84,7 +84,7 @@ export default function Recycling() {
   if (loading) {
     return (
       <div className="loader">
-        <svg x="0" y="0" width="258" height="258">
+        <svg classname="loader__svg" x="0" y="0" width="258" height="258">
           <g clip-path="url(#clip-path)">
             <path
               class="tree"
