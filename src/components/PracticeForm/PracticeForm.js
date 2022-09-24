@@ -16,18 +16,18 @@ function PracticeForm() {
   //event handler for creating new comment
   const handleComment = (event) => {
     event.preventDefault();
-    const businessName = event.target.business.value;
+    const business = event.target.business.value;
     const address = event.target.streetAddress.value;
     const city = event.target.city.value;
 
     axios
       .post(`http://localhost:8080/recycling`, {
-        businessName: businessName,
+        business: business,
         address: address,
         city: city,
       })
       .then((response) => {
-        if (businessName !== "" && address !== "" && city !== "") {
+        if (business !== "" && address !== "" && city !== "") {
           alert("Thanks for adding to our list!");
         } else {
           alert("You have not filled out the required input.");
