@@ -12,7 +12,7 @@ function Finalimprove({ score }) {
       <h2 className="excellent__score--score">
         {Math.floor((score / 150) * 100)}%
       </h2>
-      <img src={img} alt="mother nature sad" />
+      <img className="excellent__ing" src={img} alt="mother nature sad" />
       <p className="improve__text">
         It means the robots still need help. Try the game{" "}
         <a href="/game"> again. </a>

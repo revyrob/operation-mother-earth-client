@@ -7,9 +7,15 @@
     height: 5.5rem;
     color: $color-dark;
     min-height: 10%;
-   
+   margin: 1rem;
+   &:hover {
+    border-radius: 5px;
+    background-color: aliceblue;
+   }
    
     &__img{
+        background-color: grey;
+        border: 1px solid black;
         border-radius: 5px;
         width: 100px;
         height: 70px;
@@ -23,17 +29,16 @@
     &__infoBar {
         display: flex;
         flex-direction: column;
-        line-height: 1.5rem;
        
         }
-        &--title {
-            font-weight: 700;
-            font-size: 0.8125rem;
-         
-        }
-        &--author {
-            font-size: 0.8125rem;
-           
-        }
+        
+    &__title {
+        font-weight: 700;
+        font-size: 0.9375rem;
+     
     }
+    &__author {
+        font-size: 0.825rem;
+    }
+}
 

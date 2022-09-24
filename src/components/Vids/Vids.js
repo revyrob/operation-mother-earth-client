@@ -1,16 +1,19 @@
 import "./Vids.scss";
+import { Link } from "react-router-dom";
 
-function Vids({ image, title, category }) {
+function Vids({ image, title, source, id }) {
   return (
-    <article className="vids">
-      <div className="vids__img--div">
-        <img className="vids__img" src={image} alt={title} />
-      </div>
-      <div className="vids__infoBar">
-        <h3 className="vids__infoBar--title">{title}</h3>
-        <p className="vids__infoBar--author">{category}</p>
-      </div>
-    </article>
+    <Link to={`/education/${id}`}>
+      <article className="vids">
+        <div className="vids__img--div">
+          <img className="vids__img" src={image} alt={title} />
+        </div>
+        <div className="vids__infoBar">
+          <h5 className="vids__title">{title}</h5>
+          <p className="vids__author">{source}</p>
+        </div>
+      </article>
+    </Link>
   );
 }
 export default Vids;

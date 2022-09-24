@@ -28,7 +28,7 @@ function Education() {
           onClick={() => toggleHandle("films")}
           className={`education__btn ${selected ? "selected" : ""}`}
         >
-          <img className="education__img" src={play} alt="play icon" />
+          <img className="education__img--play" src={play} alt="play icon" />
         </button>
       </div>
       <EducationRead toggleClass={!selected ? "" : "selectedInfo"} />

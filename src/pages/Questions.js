@@ -45,7 +45,7 @@ function Questions() {
     if (isCorrect) {
       setScore(score + points);
     }
-    console.log(`is correct is json ${isCorrect}`);
+    // console.log(`is correct is json ${isCorrect}`);
 
     if (answerSelected === isCorrect) {
       setAnswerCorrect(true);
@@ -60,8 +60,8 @@ function Questions() {
     } else {
       setAnswerCorrect(false);
     }
-    console.log(`is the correct ansewr ${answerSelected}`);
-    console.log(`testing ${answerCorrect}`);
+    // console.log(`is the correct ansewr ${answerSelected}`);
+    // console.log(`testing ${answerCorrect}`);
     const nextQuestion = currentQuestion + 1;
     // if (
     //   nextQuestion / 3 === 1 ||
@@ -85,7 +85,7 @@ function Questions() {
         clearTimeout(questionTimer);
       }
     } else {
-      setShowScore(true);
+      setTimeout(() => setShowScore(true), 300);
     }
   };
 
@@ -140,10 +140,6 @@ function Questions() {
                       ? "questions__btn--correct"
                       : "questions__btn"
                   }
-
-                  // className={`questions__btn ${
-                  //   answerOption.isCorrect === true && "questions__btn--correct"
-                  // } `}
                 >
                   {answerOption.answer}
                 </button>

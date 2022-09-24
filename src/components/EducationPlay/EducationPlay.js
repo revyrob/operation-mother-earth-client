@@ -1,37 +1,65 @@
 import "./EducationPlay.scss";
-import Vids from "../Vids/Vids";
-import photo from "../../assets/images/filler-vid.png";
+import MainVid from "../MainVid/MainVid";
+import VidList from "../VidList/VidList";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 function EducationPlay({ toggleClass }) {
+  const [vidList, setVidList] = useState(null);
+  const [mainVid, setMainVid] = useState();
+
+  //videoId as params
+  const { videoId } = useParams();
+
+  //get the videos
+  const getVidList = () => {
+    axios
+      .get(`http://localhost:8080/education`)
+      .then((response) => {
+        console.log(response.data);
+        setVidList(response.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  //get main video
+  const getMainVid = () => {
+    if (videoId !== undefined) {
+      axios
+        .get(`http://localhost:8080/education/${videoId}`)
+        .then((response) => {
+          console.log(response.data);
+          setMainVid(response.data);
+        })
+        .catch((err) => console.log(err));
+    } else {
+      axios
+        .get(
+          `http://localhost:8080/education/b376b886-3b80-11ed-a261-0242ac120002`
+        )
+        .then((response) => {
+          setMainVid(response.data);
+        })
+        .catch((err) => console.log(err));
+    }
+  };
+
+  //use the list for the vids
+  useEffect(() => {
+    getVidList();
+  }, []);
+
+  //switch video in the video list
+  useEffect(() => {
+    getMainVid();
+  }, [videoId]);
+
   return (
     <div className={toggleClass}>
       <section className="educationPlay">
-        <div className="educationPlay__div">
-          <div className="educationPlay__video">
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/HQZjouMTH08"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <h2 className="educationPlay__title">Title of video</h2>
-          <p className="educationPlay__info">
-            Ada Byron was the only legitimate child of poet Lord Byron and
-            mathematician Lady Byron.[5] All of Byron's other children were born
-            out of wedlock to other women.[6] Byron separated from his wife a
-            month after Ada was born and left England forever.
-          </p>
-          <p className="educationPlay__source">Ada Lovelace</p>
-        </div>
-        <div className="educationPlay__list"></div>
-        <Vids image={photo} title={"title"} alt={"alt"} />
-        <Vids image={photo} title={"title"} alt={"alt"} />
-        <Vids image={photo} title={"title"} alt={"alt"} />
-        <Vids image={photo} title={"title"} alt={"alt"} />
+        {mainVid && <MainVid item={mainVid} />}
+        {mainVid && <VidList item={mainVid} vidList={vidList} />}
       </section>
     </div>
   );

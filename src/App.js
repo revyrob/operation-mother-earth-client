@@ -37,6 +37,7 @@ function App() {
         <Route path="/recycling" element={<Recycling />} />
 
         <Route path="/education" element={<Education />} />
+        <Route path="/education/:videoId" element={<Education />} />
 
         <Route path="/buySell" element={<BuySell />} />
       </Routes>

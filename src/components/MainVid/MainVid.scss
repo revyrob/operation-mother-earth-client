@@ -1,0 +1,39 @@
+@use '../../styles/variables' as *;
+
+
+.mainVid {
+    &__div{
+        width: 100%;
+        background-color: $color-dark-transparent;
+        display: flex;
+        flex-direction: column;
+        color: white;
+    }
+    &__video {
+        width: 90%;
+        height: 200px;
+        background-color: white;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1rem;
+    }
+    &__title {
+        width: 90%;
+        margin: .5rem auto;
+        font-size: 24px;
+        text-align: center;
+        
+    }
+    &__info {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 18px;
+        line-height: 24px;
+    }
+    &__source {
+        margin-left: auto;
+        margin-right:1rem;
+        color: black;
+    }
+}

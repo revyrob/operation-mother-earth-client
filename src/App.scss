@@ -84,8 +84,8 @@ a:active {
   &__progressBar{
     margin-top: 10%;
     width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    // margin-left: auto;
+    // margin-right: auto;
   }
   &__text{
     margin: 10% 0;
@@ -150,6 +150,10 @@ a:active {
       display: flex;
       justify-content: space-between;
     }
+    &--play {
+      width: 50px;
+      height: 50px;
+    }
   }
   &__btn {
     width: 100%;
@@ -157,7 +161,7 @@ a:active {
     background-color: white;
     padding-top: .5rem;
   }
- 
+  
 }
 .selected {
   background-color: $color-dark-transparent;
@@ -175,8 +179,42 @@ a:active {
   border: none;
   z-index: 10;
   &__img {
-      width: 30px;
-      cursor: pointer;
-      background-color: none;
+    width: 30px;
+    cursor: pointer;
+    background-color: none;
+  }
+}
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height:80vh;
+}
+
+.loader__svg {
+  width:90%;
+  transform:translate(-50%,-50%);
+}
+
+.tree {
+  fill: $color-dark-sec;
+}
+
+.circle-mask {
+  transform-origin: 50% 90%;
+  animation: scale 5s infinite ease-out;
+}
+
+@keyframes scale {
+  0%, 100% {
+    transform: scale(0.0);
+  }
+  7%, 90% {
+    transform: scale(0.4);
+  }
+  50% {
+    transform: scale(1);
   }
 }

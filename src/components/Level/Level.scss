@@ -18,7 +18,11 @@
     &__text {
         position: absolute;
         align-items: center;
-        font-size: 30px;
+        font-size: 20px;
         color: white;
+        // &--div{
+        //     display: flex;
+        //     flex-direction: column;
+        // }
     }
 }
