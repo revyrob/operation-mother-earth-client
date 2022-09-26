@@ -1,10 +1,13 @@
-import ButtonBar from "../ButtonBar/ButtonBar";
+// import ButtonBar from "../ButtonBar/ButtonBar";
+import AskQuestions from "../AskQuestions/AskQuestions";
 import "./EducationRead.scss";
+
 function EducationRead({ toggleClass }) {
   return (
     <div className={toggleClass}>
       <section className="educationRead">
-        <h2 className="educationRead__header">What is E-waste?</h2>
+        <AskQuestions />
+        {/* <h2 className="educationRead__header">What is E-waste?</h2>
         <div className="educationRead__div">
           <p className="educationRead__text">
             E-waste is any electrical or electronic equipment that’s been
@@ -31,7 +34,7 @@ function EducationRead({ toggleClass }) {
             E-waste and metals at the landfill, the more of these trace toxic
             materials show up in the groundwater.
           </p>
-        </div>
+        </div> */}
       </section>
     </div>
   );
