@@ -40,6 +40,12 @@ function App() {
 
         <Route path="/education" element={<Education />} />
         <Route path="/education/:videoId" element={<Education />} />
+        <Route path="/education/questions" element={<Education />} />
+        <Route
+          path="/education/questions/:questionId"
+          element={<Education />}
+        />
+        <Route path="/education/questions/new" element={<Education />} />
 
         <Route path="/buySell" element={<BuySell />} />
       </Routes>
