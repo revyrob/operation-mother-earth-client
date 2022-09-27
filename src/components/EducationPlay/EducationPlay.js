@@ -17,7 +17,7 @@ function EducationPlay({ toggleClass }) {
     axios
       .get(`http://localhost:8080/education`)
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         setVidList(response.data);
       })
       .catch((err) => console.log(err));
@@ -29,15 +29,13 @@ function EducationPlay({ toggleClass }) {
       axios
         .get(`http://localhost:8080/education/${videoId}`)
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           setMainVid(response.data);
         })
         .catch((err) => console.log(err));
     } else {
       axios
-        .get(
-          `http://localhost:8080/education/b376b886-3b80-11ed-a261-0242ac120002`
-        )
+        .get(`http://localhost:8080/education/63333f17b89883dd92deb259`)
         .then((response) => {
           setMainVid(response.data);
         })

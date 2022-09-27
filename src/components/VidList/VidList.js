@@ -12,7 +12,7 @@ function VidList({ item, vidList }) {
           .filter((vid) => vid.id !== item.id)
           .map((vid) => (
             <Vids
-              id={vid.id}
+              id={vid._id}
               key={vid.id}
               title={vid.title}
               source={vid.source}
