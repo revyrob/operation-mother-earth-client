@@ -22,6 +22,7 @@ function PracticeForm() {
   const refreshPage = () => {
     window.location.reload();
   };
+  
   //event handler for creating new comment
   const handleComment = (event) => {
     event.preventDefault();

@@ -16,22 +16,18 @@ function AskQuestions() {
   //event handler for creating new comment
   const handleComment = (event) => {
     event.preventDefault();
-    const business = event.target.business.value;
-    const address = event.target.streetAddress.value;
-    const city = event.target.city.value;
+    const question = event.target.question.value;
 
     const refreshPage = () => {
       window.location.reload();
     };
 
     axios
-      .post(`http://localhost:8080/recycling`, {
-        business: business,
-        address: address,
-        city: city,
+      .post(`http://localhost:8080/education/questions/new`, {
+        question: question,
       })
       .then((response) => {
-        if (business !== "" && address !== "" && city !== "") {
+        if (question !== "") {
           alert("Thanks for adding to our list!");
           // setShow(true);
         } else {
