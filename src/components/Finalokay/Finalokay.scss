@@ -1,7 +1,7 @@
 @use '../../styles/variables' as *;
 
 .okay {
-    height: 85vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -22,5 +22,9 @@
         margin-right: auto;
         margin-left: auto;
         line-height: 42px;
+    }
+    &__buttons{
+        display: flex;
+        justify-content: space-around;
     }
 }

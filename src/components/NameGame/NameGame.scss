@@ -6,7 +6,8 @@
     justify-content: center;
     align-items: center;
     margin: 1rem 2rem;
-    height: 60%;
+    min-height: 75vh;
+    flex-grow: 1;
     &__div {
         background-color: $color-dark-transparent;
         border-radius: 30px;

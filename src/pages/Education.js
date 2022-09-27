@@ -20,19 +20,19 @@ function Education() {
       <div className="education__img--div">
         <button
           onClick={() => toggleHandle("books")}
-          className={`education__btn ${!selected ? "selected" : ""}`}
+          className={`education__btn ${selected ? "selected" : ""}`}
         >
           <img className="education__img" src={books} alt="books icon" />
         </button>
         <button
           onClick={() => toggleHandle("films")}
-          className={`education__btn ${selected ? "selected" : ""}`}
+          className={`education__btn ${!selected ? "selected" : ""}`}
         >
           <img className="education__img--play" src={play} alt="play icon" />
         </button>
       </div>
-      <EducationRead toggleClass={!selected ? "" : "selectedInfo"} />
-      <EducationPlay toggleClass={selected ? "" : "selectedInfo"} />
+      <EducationRead toggleClass={selected ? "" : "selectedInfo"} />
+      <EducationPlay toggleClass={!selected ? "" : "selectedInfo"} />
     </section>
   );
 }

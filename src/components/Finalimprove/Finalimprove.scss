@@ -1,7 +1,7 @@
 @use '../../styles/variables' as *;
 
 .improve {
-    height: 85vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -25,5 +25,9 @@
     }
     &__img {
         height: 100px;
+    }
+    &__buttons{
+        display: flex;
+        justify-content: space-around;
     }
 }

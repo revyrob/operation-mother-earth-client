@@ -78,9 +78,9 @@ a:active {
 .questions {
   display: flex;
   flex-direction: column;
-  // justify-content: center;
   align-items: center;
-  height: 80vh;
+  min-height: 80vh;
+  // flex-grow: 1;
   &__progressBar{
     margin-top: 10%;
     width: 90%;
@@ -95,12 +95,12 @@ a:active {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    
   }
   &__answers{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    
     
   }
   &__btn {
