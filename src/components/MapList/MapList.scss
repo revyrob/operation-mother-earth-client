@@ -1,10 +1,15 @@
 @use '../../styles/variables' as *;
 
 .mapList {
-    background-color: $color-accent-sec;
+    background-color: white;
     padding: 1rem 0;
     &__title {
         text-align: center;
         font-size: 20px;
+        color: white;
+        background-color: $color-dark-transparent;
+        line-height: 32px;
+        padding: .5rem 0;
     }
+    
 }

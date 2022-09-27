@@ -3,6 +3,7 @@ import recycling from "../assets/icons/recycling-icon.svg";
 import ButtonBar from "../components/ButtonBar/ButtonBar";
 
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { MarkerF, useLoadScript } from "@react-google-maps/api";
 import { GoogleMap, InfoWindow, Marker } from "@react-google-maps/api";
 import axios from "axios";
@@ -10,6 +11,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import PracticeForm from "../components/PracticeForm/PracticeForm";
 import { useRef } from "react";
+import MapList from "../components/MapList/MapList";
 
 export default function Recycling() {
   //state for map list
@@ -192,15 +194,16 @@ export default function Recycling() {
           alt={"recycling icon"}
           text={"E-Waste Recycling Near You"}
         />
-        <ButtonBar text={"Center's Around Me"} />
+        <Link to="/recycling/add">
+          <ButtonBar text={"+ Add Center"} />
+        </Link>
         <Map
           mapList={mapList}
           currentLocation={currentLocation}
           addCenters={addCenters}
         />
-        {/* <AddCenter /> */}
-        {/* <MapList mapList={mapList} /> */}
-        <PracticeForm />
+        <MapList mapList={mapList} />
+        {/* <PracticeForm /> */}
       </section>
     );
   }

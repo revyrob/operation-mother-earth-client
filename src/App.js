@@ -9,6 +9,7 @@ import Game from "./pages/Game";
 import Levels from "./pages/Levels";
 import Questions from "./pages/Questions";
 import Recycling from "./pages/Recycling";
+import FormAdd from "./pages/FormAdd";
 import BuySell from "./pages/BuySell";
 import Education from "./pages/Education";
 import Footer from "./components/Footer/Footer";
@@ -35,6 +36,7 @@ function App() {
         <Route path="/game/questions" element={<Questions />} />
 
         <Route path="/recycling" element={<Recycling />} />
+        <Route path="/recycling/add" element={<FormAdd />} />
 
         <Route path="/education" element={<Education />} />
         <Route path="/education/:videoId" element={<Education />} />

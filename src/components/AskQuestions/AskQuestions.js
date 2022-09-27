@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import QuestionList from "../QuestionList/QuestionList";
+import QuestionSingle from "../QuestionSingle/QuestionSingle";
 
 function AskQuestions() {
   const [questions, setQuestions] = useState(null);
@@ -20,17 +22,18 @@ function AskQuestions() {
       .get(`http://localhost:8080/education/questions`)
       .then((response) => {
         console.log("getQuestions", response);
-        setQuestions(response.data);
+        setQuestions(response);
       })
       .catch((err) => console.log(err));
   };
 
+  getQuestions();
   const getQuestionsById = (id) => {
     axios
       .get(`http://localhost:8080/education/questions/${id}`)
       .then((response) => {
         console.log("getQuestionById", response);
-        setQuestion(response.data);
+        setQuestion(response);
       })
       .catch((err) => console.log(err));
   };
@@ -38,9 +41,9 @@ function AskQuestions() {
     <div>
       <h1>Questions</h1>
       {questionId !== undefined ? (
-        <QuestionSingle question={joke} />
+        <QuestionSingle question={question} />
       ) : (
-        <QuestionList allQuestions={allQuestions} />
+        <QuestionList allQuestions={questions} />
       )}
     </div>
   );

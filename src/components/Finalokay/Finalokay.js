@@ -1,5 +1,7 @@
 import "./Finalokay.scss";
 import img from "../../assets/images/mother-nature-good.png";
+import ButtonSm from "../ButtonSm/ButtonSm";
+import { Link } from "react-router-dom";
 
 function Finalokay({ score }) {
   let userName = sessionStorage.getItem("name");
@@ -14,8 +16,16 @@ function Finalokay({ score }) {
       <img src={img} alt="mother nature sad" />
       <p className="okay__text">
         It means that the robots are okay but could use another update. Try the
-        game <a href="/game"> again. </a>{" "}
+        game again.
       </p>
+      <div className="okay__buttons">
+        <Link to="/">
+          <ButtonSm text={"Home"} />
+        </Link>
+        <Link to="/game">
+          <ButtonSm text={"Play Again"} />
+        </Link>
+      </div>
     </div>
   );
 }
