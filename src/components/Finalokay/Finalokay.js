@@ -14,7 +14,10 @@ function Finalokay({ score }) {
       <h2 className="excellent__score--score">
         {Math.floor((score / 150) * 100)}%
       </h2>
-      <img src={img} alt="mother nature sad" />
+      <img
+        src={process.env.REACT_APP_API_SERVER_URL + img}
+        alt="mother nature sad"
+      />
       <p className="okay__text">
         It means that the robots are okay but could use another update. Try the
         game again.
