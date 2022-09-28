@@ -1,7 +1,6 @@
 import "./MapItem.scss";
-import Address from "../Address/Address";
 
-function MapItem({ title, address, location, location2 }) {
+function MapItem({ title, address }) {
   return (
     <article className="mapItem">
       <h3 className="mapItem__title">{title}</h3>

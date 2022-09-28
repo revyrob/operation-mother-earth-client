@@ -12,14 +12,14 @@ import Education from "./pages/Education";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  const [name, setName] = useState(" ");
+  // const [name, setName] = useState(" ");
 
   //sets the name for user
   const setNameHandler = (e) => {
     e.preventDefault();
     const userName = e.target.name.value;
-    console.log(userName);
-    setName(userName);
+    // console.log(userName);
+    // setName(userName);
   };
 
   return (
