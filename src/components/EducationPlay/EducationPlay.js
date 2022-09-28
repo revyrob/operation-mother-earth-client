@@ -48,11 +48,13 @@ function EducationPlay({ toggleClass }) {
   //use the list for the vids
   useEffect(() => {
     getVidList();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   //switch video in the video list
   useEffect(() => {
     getMainVid();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [videoId]);
 
   return (

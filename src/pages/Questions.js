@@ -5,7 +5,6 @@ import { v4 as uuidv4 } from "uuid";
 import Finalimprove from "../components/Finalimprove/Finalimprove";
 import Finalokay from "../components/Finalokay/Finalokay";
 import Finalexcellent from "../components/Finalexcellent/Finalexcellent";
-import { useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar/NavBar";
 import HeaderChange from "../components/HeaderChange/HeaderChange";
 
@@ -13,12 +12,12 @@ function Questions() {
   //use sessions storage for level
   const [questions, setQuestions] = useState("");
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [level, setLevel] = useState(0);
+  // eslint-disable-next-line no-unused-vars
+  const [_level, setLevel] = useState(0);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [answerSelected, setAnswerSelected] = useState(true);
   const [answerCorrect, setAnswerCorrect] = useState(false);
-  let navigate = useNavigate();
 
   const REACT_APP_API_SERVER_URL = process.env.REACT_APP_API_SERVER_URL;
 
@@ -75,6 +74,7 @@ function Questions() {
   useEffect(() => {
     getQuestions();
     getLevel();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

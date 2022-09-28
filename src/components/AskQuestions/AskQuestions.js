@@ -75,6 +75,7 @@ function AskQuestions() {
     } else {
       getQuestions();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [questionId]);
 
   return (
