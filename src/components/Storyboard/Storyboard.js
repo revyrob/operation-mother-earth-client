@@ -1,6 +1,7 @@
 import "./Storyboard.scss";
 import homeBtn from "../../assets/icons/home-icon.svg";
 import forwardBtn from "../../assets/icons/earth-forward-icon.png";
+import NavBar from "../NavBar/NavBar";
 
 function Storyboard({ img, text, alt, clickHome, clickForward }) {
   return (
@@ -13,13 +14,13 @@ function Storyboard({ img, text, alt, clickHome, clickForward }) {
           <p className="storyboard__text">{text}</p>
         </div>
         <div className="direction">
-          <button onClick={clickHome} className="direction__back">
+          {/* <button onClick={clickHome} className="direction__back">
             <img
               className="direction__icon"
               src={homeBtn}
               alt={"back button"}
             />
-          </button>
+          </button> */}
 
           <button onClick={clickForward} className="direction__forward">
             <img
@@ -30,6 +31,7 @@ function Storyboard({ img, text, alt, clickHome, clickForward }) {
           </button>
         </div>
       </div>
+      <NavBar />
     </section>
   );
 }

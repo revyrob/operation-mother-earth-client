@@ -3,7 +3,6 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
-import Header from "./components/Header/Header";
 import HomePage from "./pages/HomePage";
 import Game from "./pages/Game";
 import Levels from "./pages/Levels";
@@ -12,7 +11,6 @@ import Recycling from "./pages/Recycling";
 import FormAdd from "./pages/FormAdd";
 import BuySell from "./pages/BuySell";
 import Education from "./pages/Education";
-import Footer from "./components/Footer/Footer";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 function App() {
   const [name, setName] = useState(" ");
@@ -27,7 +25,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
 
@@ -49,7 +46,6 @@ function App() {
 
         <Route path="/buySell" element={<BuySell />} />
       </Routes>
-      <Footer />
     </BrowserRouter>
   );
 }

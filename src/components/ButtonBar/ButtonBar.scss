@@ -13,11 +13,18 @@
         border-radius: 30px;
         width: 160px;
         height: 34px;
+        &:hover {
+            background-color: $color-dark-transparent;
+            
+        }
     }
     &__text {
         font-size: 16px;
         color: $color-dark;
         font-family: $font-primary;
         text-transform: uppercase;
+        &:hover {
+            color: white;
+        }
     }
 }

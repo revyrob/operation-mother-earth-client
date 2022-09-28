@@ -22,7 +22,7 @@ function PracticeForm() {
   const refreshPage = () => {
     window.location.reload();
   };
-  
+
   //event handler for creating new comment
   const handleComment = (event) => {
     event.preventDefault();
@@ -109,11 +109,11 @@ function PracticeForm() {
             >
               + Add to Database
             </Button>
-            <Link to="/">
+            {/* <Link to="/">
               <Button fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
                 Go to HomePage
               </Button>
-            </Link>
+            </Link> */}
           </div>
         </Form>
       </Formik>

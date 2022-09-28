@@ -8,6 +8,7 @@ import Finalimprove from "../components/Finalimprove/Finalimprove";
 import Finalokay from "../components/Finalokay/Finalokay";
 import Finalexcellent from "../components/Finalexcellent/Finalexcellent";
 import { useNavigate } from "react-router-dom";
+import NavBar from "../components/NavBar/NavBar";
 
 function Questions() {
   //use sessions storage for level
@@ -145,6 +146,7 @@ function Questions() {
                 </button>
               ))}
           </div>
+          <NavBar />
         </div>
       )}
     </>
