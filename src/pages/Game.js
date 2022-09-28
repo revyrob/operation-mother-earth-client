@@ -13,8 +13,9 @@ function Game() {
   const [story, setStory] = useState(" ");
   const [currentStoryboard, setCurrentStoryboard] = useState(0);
 
+  const REACT_APP_API_SERVER_URL = process.env.REACT_APP_API_SERVER_URL;
+
   sessionStorage.setItem("name", name);
-  // const [name, setName] = useState(" ");
   let navigate = useNavigate();
 
   const handleClose = () => setShow(false);
@@ -24,10 +25,8 @@ function Game() {
   const setNameHandler = (e) => {
     const userName = e.target.name.value;
     e.preventDefault();
-    //??I am not sure why this isn't testing??
     if (userName === "") {
       setShow(true);
-      // alert("Enter a username");
       e.preventDefault();
     } else {
       setName(userName);
@@ -38,17 +37,14 @@ function Game() {
   //get questions and answer for game
   const getQuestions = () => {
     axios
-      .get(`http://localhost:8080/gameQuestions`)
-      .then((response) => {
-        // console.log(response);
-      })
+      .get(`${REACT_APP_API_SERVER_URL}gameQuestions`)
+      .then((response) => {})
       .catch((err) => console.log(err));
   };
 
   const getStory = () => {
     axios
-      //??the images are not showing up??
-      .get(`http://localhost:8080/gameStory`)
+      .get(`${REACT_APP_API_SERVER_URL}gameStory`)
       .then((response) => {
         setStory(response.data);
       })
@@ -77,27 +73,11 @@ function Game() {
     navigate("/");
   };
 
-  //style for modal
-  // const bg = {
-  //   overlay: {
-  //     background: "rgba(19, 24, 44, .6)",
-  //   },
-  //   content: {
-  //     width: "42rem",
-  //     height: "16.375rem",
-  //     margin: "5.3125rem auto 0",
-  //     display: "flex",
-  //     flexDirection: "column",
-  //     justifyContent: "space-between",
-  //     boxShadow: "0px 2px 5px rgba(19, 24, 44, 0.1)",
-  //     borderRadius: "3px",
-  //   },
-  // };
   return (
     <>
       {showStory ? (
         <Storyboard
-          img={`http://localhost:8080/${story[currentStoryboard].image}`}
+          img={`${REACT_APP_API_SERVER_URL}${story[currentStoryboard].image}`}
           //how to set name in here for first storyboard
           alt={story[currentStoryboard].alt}
           text={story[currentStoryboard].text}

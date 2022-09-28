@@ -35,13 +35,11 @@
     align-items: centers;
     justify-content: space-between;
     width: 70%;
-    // margin-left: auto;
-    // margin-right: auto;
     margin: 1.5rem  auto;
     &__forward, &__back {
         background-color: white;
         border: none;
-        
+        margin-left: 90%;
     }
     &__icon{
         width: 50px;

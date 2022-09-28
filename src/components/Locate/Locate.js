@@ -1,6 +1,5 @@
 import compass from "../../assets/icons/compass.png";
 import "./Locate.scss";
-import earth from "../../assets/images/earth.png";
 
 function Locate({ panTo }) {
   return (
@@ -9,7 +8,6 @@ function Locate({ panTo }) {
       onClick={() => {
         navigator.geolocation.getCurrentPosition(
           (position) => {
-            // console.log(position.coords.longitude);
             panTo({
               lat: position.coords.latitude,
               lng: position.coords.longitude,

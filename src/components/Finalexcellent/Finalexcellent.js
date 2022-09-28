@@ -2,6 +2,7 @@ import "./Finalexcellent.scss";
 import img from "../../assets/images/mother-nature-great.png";
 import ButtonSm from "../ButtonSm/ButtonSm";
 import { Link } from "react-router-dom";
+import NavBar from "../NavBar/NavBar";
 
 function Finalexcellent({ score }) {
   let userName = sessionStorage.getItem("name");
@@ -18,13 +19,11 @@ function Finalexcellent({ score }) {
         It means that the robots are well educated and you saved Mother Earth!
       </p>
       <div className="excellent__buttons">
-        <Link to="/">
-          <ButtonSm text={"Home"} />
-        </Link>
         <Link to="/game">
           <ButtonSm text={"Play Again"} />
         </Link>
       </div>
+      <NavBar />
     </div>
   );
 }
