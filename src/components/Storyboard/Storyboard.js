@@ -6,11 +6,7 @@ function Storyboard({ img, text, alt, clickHome, clickForward }) {
   return (
     <section className="storyboard">
       <div className="storyboard__img--div">
-        <img
-          className="storyboard__img"
-          src={process.env.REACT_APP_API_SERVER_URL + img}
-          alt={alt}
-        />
+        <img className="storyboard__img" src={img} alt={alt} />
       </div>
       <div className="storyboard__bottom">
         <div className="storyboard__text--div">
