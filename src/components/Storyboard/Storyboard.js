@@ -1,5 +1,4 @@
 import "./Storyboard.scss";
-import homeBtn from "../../assets/icons/home-icon.svg";
 import forwardBtn from "../../assets/icons/earth-forward-icon.png";
 import NavBar from "../NavBar/NavBar";
 

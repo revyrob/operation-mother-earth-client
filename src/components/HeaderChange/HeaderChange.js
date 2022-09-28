@@ -1,5 +1,4 @@
 import "./HeaderChange.scss";
-import logo from "../../assets/logo/logo.png";
 import logoIcon from "../../assets/logo/logo-earth.png";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
