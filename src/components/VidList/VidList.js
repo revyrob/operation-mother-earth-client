@@ -14,7 +14,7 @@ function VidList({ item, vidList }) {
               key={vid.id}
               title={vid.title}
               source={vid.source}
-              image={vid.process.env.REACT_APP_API_SERVER_URL + image}
+              image={process.env.REACT_APP_API_SERVER_URL + vid.image}
             />
           ))}
     </section>
