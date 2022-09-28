@@ -1,4 +1,3 @@
-// import ButtonBar from "../ButtonBar/ButtonBar";
 import AskQuestions from "../AskQuestions/AskQuestions";
 import "./EducationRead.scss";
 

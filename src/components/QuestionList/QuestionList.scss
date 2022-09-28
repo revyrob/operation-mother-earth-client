@@ -1,0 +1,44 @@
+@use '../../styles/variables' as *;
+
+.questionList {
+    &__header{
+        background-color: $color-dark-transparent;
+        color:white;
+        padding: 1rem 1.5rem .75rem;
+        text-align: center;
+    }
+    &__title{
+       padding-bottom: .75rem;
+    }
+    &__p{
+        font-size: 18px;
+    }
+    &__list {
+        color:black;
+        padding: 0;
+        
+        &--item {
+            color: black;
+            border-bottom: 1px solid $color-light-sec;
+            padding: 0 1rem;
+            margin: 1rem 0;
+        }
+        &--link {
+            color: black;
+            line-height: 32px;
+            
+            
+        }
+    }
+}
+/* unvisited link */
+a:link, a:visited, a:active {
+    color: black;
+  }
+ 
+  /* mouse over link */
+  a:hover {
+    color: $color-dark-sec;
+  }
+  
+

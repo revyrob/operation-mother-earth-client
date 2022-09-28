@@ -2,8 +2,6 @@ import "./VidList.scss";
 import Vids from "../Vids/Vids";
 
 function VidList({ item, vidList }) {
-  //   console.log(mainVid);
-  //   console.log(vidList);
   return (
     <section className="vidList">
       <h2 className="vidList__title">VIDEO LIBRARY</h2>

@@ -9,13 +9,15 @@ function EducationPlay({ toggleClass }) {
   const [vidList, setVidList] = useState(null);
   const [mainVid, setMainVid] = useState();
 
+  const REACT_APP_API_SERVER_URL = process.env.REACT_APP_API_SERVER_URL;
+
   //videoId as params
   const { videoId } = useParams();
 
   //get the videos
   const getVidList = () => {
     axios
-      .get(`http://localhost:8080/education`)
+      .get(`${REACT_APP_API_SERVER_URL}education`)
       .then((response) => {
         // console.log(response.data);
         setVidList(response.data);
@@ -27,7 +29,7 @@ function EducationPlay({ toggleClass }) {
   const getMainVid = () => {
     if (videoId !== undefined) {
       axios
-        .get(`http://localhost:8080/education/${videoId}`)
+        .get(`${REACT_APP_API_SERVER_URL}education/${videoId}`)
         .then((response) => {
           // console.log(response.data);
           setMainVid(response.data);
@@ -35,7 +37,7 @@ function EducationPlay({ toggleClass }) {
         .catch((err) => console.log(err));
     } else {
       axios
-        .get(`http://localhost:8080/education/63333f17b89883dd92deb259`)
+        .get(`${REACT_APP_API_SERVER_URL}education/63333f17b89883dd92deb259`)
         .then((response) => {
           setMainVid(response.data);
         })

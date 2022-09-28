@@ -1,18 +1,16 @@
 import TitleHeader from "../components/TitleHeader/TitleHeader";
 import recycling from "../assets/icons/recycling-icon.svg";
 import ButtonBar from "../components/ButtonBar/ButtonBar";
-
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { MarkerF, useLoadScript } from "@react-google-maps/api";
 import { GoogleMap, InfoWindow, Marker } from "@react-google-maps/api";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
-
-import PracticeForm from "../components/PracticeForm/PracticeForm";
 import { useRef } from "react";
 import MapList from "../components/MapList/MapList";
 import NavBar from "../components/NavBar/NavBar";
+import HeaderChange from "../components/HeaderChange/HeaderChange";
 
 export default function Recycling() {
   //state for map list
@@ -22,6 +20,8 @@ export default function Recycling() {
     lng: -117.8,
   });
   const [addCenters, setAddCenters] = useState(null);
+
+  const REACT_APP_API_SERVER_URL = process.env.REACT_APP_API_SERVER_URL;
 
   //get recycling centers data, pass it to the Hook
   //and pass it to the MapList
@@ -34,7 +34,9 @@ export default function Recycling() {
         setCurrentLocation({ lat: userLat, lng: userLng });
 
         axios
-          .get(`http://localhost:8080/recycling?location=${userLat},${userLng}`)
+          .get(
+            `${REACT_APP_API_SERVER_URL}recycling?location=${userLat},${userLng}`
+          )
           .then((response) => {
             setMapList(response.data);
             console.log(response.data);
@@ -49,7 +51,7 @@ export default function Recycling() {
 
   const getAddCenters = () => {
     axios
-      .get("http://localhost:8080/recycling/new")
+      .get(`${REACT_APP_API_SERVER_URL}recycling/new`)
       .then((response) => {
         setAddCenters(response.data);
       })
@@ -191,6 +193,7 @@ export default function Recycling() {
   else {
     return (
       <>
+        <HeaderChange />
         <section className="recycling">
           <TitleHeader
             img={recycling}

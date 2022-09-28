@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Line } from "rc-progress";
-import Level from "../components/Level/Level";
-import Fact from "../components/Face/Fact";
 import { v4 as uuidv4 } from "uuid";
 import Finalimprove from "../components/Finalimprove/Finalimprove";
 import Finalokay from "../components/Finalokay/Finalokay";
 import Finalexcellent from "../components/Finalexcellent/Finalexcellent";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar/NavBar";
+import HeaderChange from "../components/HeaderChange/HeaderChange";
 
 function Questions() {
   //use sessions storage for level
@@ -21,9 +20,11 @@ function Questions() {
   const [answerCorrect, setAnswerCorrect] = useState(false);
   let navigate = useNavigate();
 
+  const REACT_APP_API_SERVER_URL = process.env.REACT_APP_API_SERVER_URL;
+
   const getQuestions = () => {
     axios
-      .get(`http://localhost:8080/gameQuestions`)
+      .get(`${REACT_APP_API_SERVER_URL}gameQuestions`)
       .then((response) => {
         setQuestions(response.data);
       })
@@ -40,20 +41,16 @@ function Questions() {
   const handleAnswerOptionClick = (isCorrect, points) => {
     let answerTimer;
     let questionTimer;
-
     setAnswerSelected(true);
-
     if (isCorrect) {
       setScore(score + points);
     }
-    // console.log(`is correct is json ${isCorrect}`);
 
     if (answerSelected === isCorrect) {
       setAnswerCorrect(true);
       if (!answerTimer) {
         answerTimer = setTimeout(() => {
           setAnswerCorrect(false);
-          // setAnswerSelected(false);
         }, 200);
       } else {
         clearTimeout(answerTimer);
@@ -61,22 +58,7 @@ function Questions() {
     } else {
       setAnswerCorrect(false);
     }
-    // console.log(`is the correct ansewr ${answerSelected}`);
-    // console.log(`testing ${answerCorrect}`);
     const nextQuestion = currentQuestion + 1;
-    // if (
-    //   nextQuestion / 3 === 1 ||
-    //   nextQuestion / 3 === 2 ||
-    //   nextQuestion / 3 === 3
-    // ) {
-    //   setCurrentQuestion(nextQuestion);
-    //   // console.log(nextQuestion);
-    //   // navigate("/game/level", nextQuestion);
-    // }
-    // if (currentQuestion % 2 && currentQuestion !== 0) {
-    //   <Fact />;
-    //   setCurrentQuestion(nextQuestion);
-    // }
     if (nextQuestion < questions.length) {
       if (!questionTimer) {
         questionTimer = setTimeout(() => {
@@ -99,12 +81,9 @@ function Questions() {
     console.log("answerSelected", answerSelected);
   }, [answerSelected]);
 
-  // console.log(score);
-  //show three levels equally when question is divisble by 3
-  //show three facts when the question is divisble by 2
-
   return (
     <>
+      <HeaderChange />
       {showScore ? (
         score <= 75 ? (
           <Finalimprove score={score} />

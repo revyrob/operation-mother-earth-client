@@ -6,14 +6,13 @@ import Grid from "@mui/material/Grid";
 import axios from "axios";
 import "./PracticeForm.scss";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 import Modal from "react-bootstrap/Modal";
 import Button1 from "react-bootstrap/Button";
 
 function PracticeForm() {
-  //   const { REACT_APP_API_SERVER_URL } = process.env;
-  //refresh page function
+  const REACT_APP_API_SERVER_URL = process.env.REACT_APP_API_SERVER_URL;
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -31,7 +30,7 @@ function PracticeForm() {
     const city = event.target.city.value;
 
     axios
-      .post(`http://localhost:8080/recycling`, {
+      .post(`${REACT_APP_API_SERVER_URL}recycling`, {
         business: business,
         address: address,
         city: city,
@@ -52,6 +51,7 @@ function PracticeForm() {
 
   return (
     <section className="form__section">
+      <h1 className="form__header">Add a E-waste Center</h1>
       <Formik
         initialValues={{ name: "", street: "", city: "", country: "" }}
         onSubmit={async (values) => {
@@ -60,7 +60,6 @@ function PracticeForm() {
         }}
       >
         <Form className="form" method="post" onSubmit={handleComment}>
-          <h1 className="form__header">Add a E-waste Center</h1>
           <div className="form__form">
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
@@ -109,11 +108,6 @@ function PracticeForm() {
             >
               + Add to Database
             </Button>
-            {/* <Link to="/">
-              <Button fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
-                Go to HomePage
-              </Button>
-            </Link> */}
           </div>
         </Form>
       </Formik>
