@@ -12,6 +12,7 @@ import { v4 as uuidv4 } from "uuid";
 import PracticeForm from "../components/PracticeForm/PracticeForm";
 import { useRef } from "react";
 import MapList from "../components/MapList/MapList";
+import NavBar from "../components/NavBar/NavBar";
 
 export default function Recycling() {
   //state for map list
@@ -189,23 +190,25 @@ export default function Recycling() {
   // If page is not in loading state, display page.
   else {
     return (
-      <section className="recycling">
-        <TitleHeader
-          img={recycling}
-          alt={"recycling icon"}
-          text={"E-Waste Recycling Near You"}
-        />
-        <Link to="/recycling/add">
-          <ButtonBar text={"+ Add Center"} />
-        </Link>
-        <Map
-          mapList={mapList}
-          currentLocation={currentLocation}
-          addCenters={addCenters}
-        />
-        <MapList mapList={mapList} />
-        {/* <PracticeForm /> */}
-      </section>
+      <>
+        <section className="recycling">
+          <TitleHeader
+            img={recycling}
+            alt={"recycling icon"}
+            text={"E-Waste Recycling Near You"}
+          />
+          <Link to="/recycling/add">
+            <ButtonBar text={"+ Add Center"} />
+          </Link>
+          <Map
+            mapList={mapList}
+            currentLocation={currentLocation}
+            addCenters={addCenters}
+          />
+          <MapList mapList={mapList} />
+        </section>
+        <NavBar />
+      </>
     );
   }
 }
