@@ -1,6 +1,6 @@
 import books from "../assets/icons/books-icon.svg";
 import play from "../assets/icons/play-icon.svg";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import EducationRead from "../components/EducationRead/EducationRead";
 import EducationPlay from "../components/EducationPlay/EducationPlay";
 import NavBar from "../components/NavBar/NavBar";

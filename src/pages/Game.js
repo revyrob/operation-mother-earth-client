@@ -54,6 +54,7 @@ function Game() {
   useEffect(() => {
     getQuestions();
     getStory();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   //create on click forward goes to the next page
