@@ -61,9 +61,11 @@ export default function Recycling() {
   useEffect(() => {
     getMapInfo();
     getAddCenters();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   //for loading the googlemap with the google map api key
+  // eslint-disable-next-line no-unused-vars
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
   });
@@ -83,6 +85,7 @@ export default function Recycling() {
       setLoading((loading) => !loading);
     };
     loadData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // If page is in loading state, display
