@@ -1,7 +1,6 @@
 import "./App.scss";
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
 import HomePage from "./pages/HomePage";
 import Game from "./pages/Game";
 import Levels from "./pages/Levels";
@@ -15,19 +14,19 @@ function App() {
   // const [name, setName] = useState(" ");
 
   //sets the name for user
-  const setNameHandler = (e) => {
-    e.preventDefault();
-    const userName = e.target.name.value;
-    // console.log(userName);
-    // setName(userName);
-  };
+  // const setNameHandler = (e) => {
+  //   e.preventDefault();
+  //   const userName = e.target.name.value;
+  //   console.log(userName);
+  //   setName(userName);
+  // };
 
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
 
-        <Route path="/game" element={<Game nameHandler={setNameHandler} />} />
+        <Route path="/game" element={<Game />} />
         <Route path="/game/level" element={<Levels />} />
         <Route path="/game/questions" element={<Questions />} />
 

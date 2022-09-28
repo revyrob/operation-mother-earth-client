@@ -75,7 +75,7 @@ function AskQuestions() {
     } else {
       getQuestions();
     }
-  }, [questionId]);
+  });
 
   return (
     <>
