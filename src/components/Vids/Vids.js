@@ -6,7 +6,11 @@ function Vids({ image, title, source, id }) {
     <Link to={`/education/${id}`}>
       <article className="vids">
         <div className="vids__img--div">
-          <img className="vids__img" src={image} alt={title} />
+          <img
+            className="vids__img"
+            src={process.env.REACT_APP_API_SERVER_URL + image}
+            alt={title}
+          />
         </div>
         <div className="vids__infoBar">
           <h5 className="vids__title">{title}</h5>
