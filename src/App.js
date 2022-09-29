@@ -8,23 +8,16 @@ import Questions from "./pages/Questions";
 import Recycling from "./pages/Recycling";
 import FormAdd from "./pages/FormAdd";
 import Education from "./pages/Education";
+import AboutMe from "./pages/AboutMe";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  // const [name, setName] = useState(" ");
-
-  //sets the name for user
-  // const setNameHandler = (e) => {
-  //   e.preventDefault();
-  //   const userName = e.target.name.value;
-  //   console.log(userName);
-  //   setName(userName);
-  // };
-
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
+
+        <Route path="/about" element={<AboutMe />} />
 
         <Route path="/game" element={<Game />} />
         <Route path="/game/level" element={<Levels />} />

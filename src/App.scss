@@ -219,3 +219,44 @@ a:active {
   }
 }
 
+.aboutMe {
+ background-color: $color-dark-transparent;
+ color: rgb(62, 62, 62);
+ height: 100vh;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-around;
+ align-items: center;
+ padding: 2rem;
+ &__info{
+  text-align: center;
+ }
+ &__div {
+  background-color: whitesmoke;
+  border-radius: 15px;
+  padding: 1rem;
+  &--title{
+    text-align: center;
+    text-decoration: underline;
+    color: $color-dark-transparent
+  }
+ }
+  
+}
+.wave {
+  animation-name: wave-animation;  /* Refers to the name of your @keyframes element below */
+  animation-duration: 2.5s;        /* Change to speed up or slow down */
+  animation-iteration-count: infinite;  /* Never stop waving :) */
+  transform-origin: 70% 70%;       /* Pivot around the bottom-left palm */
+  display: inline-block;
+}
+@keyframes wave-animation {
+  0% { transform: rotate( 0.0deg) }
+ 10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
+ 20% { transform: rotate(-8.0deg) }
+ 30% { transform: rotate(14.0deg) }
+ 40% { transform: rotate(-4.0deg) }
+ 50% { transform: rotate(10.0deg) }
+ 60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
+100% { transform: rotate( 0.0deg) }
+}
