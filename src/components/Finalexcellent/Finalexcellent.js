@@ -14,10 +14,7 @@ function Finalexcellent({ score }) {
       <h2 className="excellent__score--score">
         {Math.floor((score / 150) * 100)}%
       </h2>
-      <img
-        src={process.env.REACT_APP_API_SERVER_URL + img}
-        alt="mother nature happy"
-      />
+      <img src={img} alt="mother nature happy" />
       <p className="excellent__text">
         It means that the robots are well educated and you saved Mother Earth!
       </p>
