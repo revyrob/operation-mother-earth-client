@@ -35,7 +35,7 @@ export default function Recycling() {
 
         axios
           .get(
-            `${REACT_APP_API_SERVER_URL}recycling?location=${userLat},${userLng}`
+            `${REACT_APP_API_SERVER_URL}recycling?lat=${userLat}&lng=${userLng}`
           )
           .then((response) => {
             setMapList(response.data);
