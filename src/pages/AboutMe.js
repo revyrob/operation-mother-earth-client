@@ -1,3 +1,5 @@
+import NavBar from "../components/NavBar/NavBar";
+
 function AboutMe() {
   return (
     <section className="aboutMe">
@@ -49,6 +51,7 @@ function AboutMe() {
           </a>
         </h4>
       </div>
+      <NavBar />
     </section>
   );
 }
