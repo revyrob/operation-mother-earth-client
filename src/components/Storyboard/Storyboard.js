@@ -22,6 +22,7 @@ function Storyboard({ img, text, alt, clickHome, clickForward }) {
           </button>
         </div>
       </div>
+
       <NavBar />
     </section>
   );
