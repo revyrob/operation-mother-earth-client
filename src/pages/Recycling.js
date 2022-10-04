@@ -30,7 +30,6 @@ export default function Recycling() {
       navigator.geolocation.getCurrentPosition((position) => {
         const userLat = position.coords.latitude;
         const userLng = position.coords.longitude;
-        console.log(userLat);
         setCurrentLocation({ lat: userLat, lng: userLng });
 
         axios
@@ -39,7 +38,6 @@ export default function Recycling() {
           )
           .then((response) => {
             setMapList(response.data);
-            console.log(response.data);
           })
           .catch((err) => console.log(err));
       });
@@ -220,8 +218,6 @@ export default function Recycling() {
 }
 //I had trouble making it into it's own component it is now here
 function Map({ mapList, currentLocation, addCenters }) {
-  // console.log(mapList);
-  console.log(currentLocation);
   const [selectedMarker, setSelectedMarker] = useState();
   let [infoOpen, setInfoOpen] = useState(false);
   let [infoOpenJson, setInfoOpenJson] = useState(false);

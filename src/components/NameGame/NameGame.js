@@ -40,7 +40,9 @@ function NameGame({ nameHandler }) {
           </label>
         </form>
       </section>
-      <NavBar />
+      <section className="navbar">
+        <NavBar />
+      </section>
     </>
   );
 }
