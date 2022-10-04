@@ -1,15 +1,32 @@
-
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
 
 .banner {
     background-image: url('../../assets/background-image/mobile-background.png');
     background-repeat: no-repeat;
     background-size: cover;
-    // min-height:80vh;
     height: 75vh;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 3rem 0;
+    &__divWrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 3rem 0;
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        @include desktop {
+            max-width: 960px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+    &__div--extra {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }

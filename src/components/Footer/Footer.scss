@@ -1,18 +1,19 @@
 @use '../../styles/variables' as *;
 
 .footer {
-    // font-family: $font-title;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: $color-dark-transparent;
     width: 100%;
-    // height: 44px;
     &__text {
         color: white;
         font-family: $font-primary;
         margin-top: 1rem;
+        &:hover {
+            color: $color-light-sec;
+        }
     }
     
 }

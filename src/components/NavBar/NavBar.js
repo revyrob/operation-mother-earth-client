@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
-    <div className="nav">
+    <section className="nav">
       <div className="phantomStyle" />
       <div className="nav__style">
         <Link to="/">
@@ -23,7 +23,7 @@ function NavBar() {
           <img src={recycling} alt="recycling button" className="nav__img" />
         </Link>
       </div>
-    </div>
+    </section>
   );
 }
 export default NavBar;

@@ -1,7 +1,9 @@
 @use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
 
 .nav {
-  
+
     &__style {
         background-color: white;
         color:white;
@@ -15,7 +17,9 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        
+        @include tablet {
+            display: none;
+        }
     }
     &__img{
         margin: 1rem 0;

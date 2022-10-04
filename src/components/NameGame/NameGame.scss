@@ -1,4 +1,6 @@
 @use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
 
 .namegame {
     display: flex;
@@ -16,7 +18,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        // margin-bottom: 3rem;
         &--enter {
             display: flex;
             justify-content:space-between;
@@ -52,5 +53,10 @@
             width: 75px;
         }
         
+    }
+}
+.navbar {
+    @include tablet {
+        display: none;
     }
 }
