@@ -101,29 +101,31 @@ function Questions() {
               strokeColor="#379683"
             />
           </div>
-          <div className="questions__text">
-            {questions && questions[currentQuestion].question}
-          </div>
-          <div className="questions__answers">
-            {questions &&
-              questions[currentQuestion].answerOptions.map((answerOption) => (
-                <button
-                  key={uuidv4()}
-                  onClick={() =>
-                    handleAnswerOptionClick(
-                      answerOption.isCorrect,
-                      answerOption.points
-                    )
-                  }
-                  className={
-                    answerSelected && answerCorrect && answerOption.isCorrect
-                      ? "questions__btn--correct"
-                      : "questions__btn"
-                  }
-                >
-                  {answerOption.answer}
-                </button>
-              ))}
+          <div className="questions__div">
+            <div className="questions__text">
+              {questions && questions[currentQuestion].question}
+            </div>
+            <div className="questions__answers">
+              {questions &&
+                questions[currentQuestion].answerOptions.map((answerOption) => (
+                  <button
+                    key={uuidv4()}
+                    onClick={() =>
+                      handleAnswerOptionClick(
+                        answerOption.isCorrect,
+                        answerOption.points
+                      )
+                    }
+                    className={
+                      answerSelected && answerCorrect && answerOption.isCorrect
+                        ? "questions__btn--correct"
+                        : "questions__btn"
+                    }
+                  >
+                    {answerOption.answer}
+                  </button>
+                ))}
+            </div>
           </div>
           <NavBar />
         </div>

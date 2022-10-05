@@ -10,6 +10,7 @@
     margin: 1rem 2rem;
     min-height: 75vh;
     flex-grow: 1;
+   
     &__div {
         background-color: $color-dark-transparent;
         border-radius: 30px;
@@ -22,6 +23,7 @@
             display: flex;
             justify-content:space-between;
             align-items:center;
+            
         }
     }
     &__input {
@@ -44,6 +46,7 @@
     }
     &__form {
         height: 20%;
+        
     }
     &__btn {
         background-color: white;

@@ -75,7 +75,7 @@ function Game() {
   };
 
   return (
-    <>
+    <section className="game">
       {showStory ? (
         <Storyboard
           img={`${REACT_APP_API_SERVER_URL}${story[currentStoryboard].image}`}
@@ -105,7 +105,7 @@ function Game() {
           </Modal>
         </>
       )}
-    </>
+    </section>
   );
 }
 export default Game;
