@@ -43,13 +43,15 @@
     width: 70%;
     margin: 1.5rem  auto;
    
-    &__forward, &__back {
+    &__forward, &__back, &__home {
         background-color: white;
         border: none;
-        margin-left: 90%;
     }
     &__icon{
         width: 50px;
         height: 50px;
+        &--reverse {
+            transform: rotate(180deg);
+        }
     }
 }

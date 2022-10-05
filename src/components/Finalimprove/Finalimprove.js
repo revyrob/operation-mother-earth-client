@@ -1,5 +1,6 @@
 import "./Finalimprove.scss";
 import img from "../../assets/images/mother-nature-sad.png";
+import home from "../../assets/icons/home-icon.svg";
 import ButtonSm from "../ButtonSm/ButtonSm";
 import { Link } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
@@ -18,9 +19,20 @@ function Finalimprove({ score }) {
       <p className="improve__text">
         It means the robots still need help. Try the game again.
       </p>
-      <div className="improve__buttons">
-        <Link to="/game">
-          <ButtonSm text={"Play Again"} />
+      <div className="excellent__navigate">
+        <div className="excellent__buttons">
+          <Link to="/game">
+            <ButtonSm text={"Play Again"} />
+          </Link>
+        </div>
+        <Link to="/">
+          <div className="excellent__home">
+            <img
+              className="direction__icon"
+              src={home}
+              alt={"forward button"}
+            />
+          </div>
         </Link>
       </div>
       <NavBar />
