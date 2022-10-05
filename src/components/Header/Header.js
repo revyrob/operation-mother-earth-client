@@ -4,14 +4,16 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <section className="logo">
-      <Link to={"/"}>
-        <img
-          className="logo__img"
-          src={logo}
-          alt="operation mother earth logo"
-        />
-      </Link>
+    <section className="header">
+      <div className="header__logo">
+        <Link to={"/"}>
+          <img
+            className="header__img"
+            src={logo}
+            alt="operation mother earth logo"
+          />
+        </Link>
+      </div>
     </section>
   );
 }

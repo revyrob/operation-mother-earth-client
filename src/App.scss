@@ -1,5 +1,7 @@
 @use './styles/reset';
 @use './styles/variables' as *;
+@use './styles/mixins' as *;
+
 
 .App {
   text-align: center;
@@ -80,12 +82,15 @@ a:active {
   flex-direction: column;
   align-items: center;
   min-height: 80vh;
-  // flex-grow: 1;
+  &__div{
+    @include tablet{
+    flex-direction: row;
+    }
+  }
   &__progressBar{
     margin-top: 10%;
     width: 90%;
-    // margin-left: auto;
-    // margin-right: auto;
+
   }
   &__text{
     margin: 10% 0;
@@ -193,10 +198,6 @@ a:active {
   height:80vh;
 }
 
-// .loader__svg {
-  // width:90%;
-  // transform:translate(-50%,-50%);
-// }
 
 .tree {
   fill: $color-dark-sec;
@@ -259,4 +260,12 @@ a:active {
  50% { transform: rotate(10.0deg) }
  60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
 100% { transform: rotate( 0.0deg) }
+}
+
+.game {
+  @include desktop {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+}
 }
