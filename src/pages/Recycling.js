@@ -16,8 +16,8 @@ export default function Recycling() {
   //state for map list
   const [mapList, setMapList] = useState(null);
   const [currentLocation, setCurrentLocation] = useState({
-    lat: 49.28507657283974,
-    lng: -123.11461581337777,
+    lat: 49.285,
+    lng: -123.1146,
   });
   const [addCenters, setAddCenters] = useState(null);
 
@@ -30,6 +30,7 @@ export default function Recycling() {
       navigator.geolocation.getCurrentPosition((position) => {
         const userLat = position.coords.latitude;
         const userLng = position.coords.longitude;
+        console.log(currentLocation);
         setCurrentLocation({ lat: userLat, lng: userLng });
 
         axios
@@ -257,9 +258,7 @@ function Map({ mapList, currentLocation, addCenters }) {
               lng: selectedMarker.geometry.location.lng,
             }}
             onCloseClick={() => {
-              console.log("window closed");
               setInfoOpen(false);
-              console.log(selectedMarker);
             }}
           >
             <div>
@@ -280,7 +279,6 @@ function Map({ mapList, currentLocation, addCenters }) {
               onClick={() => {
                 setSelectedMarker(item);
                 setInfoOpenJson(true);
-                console.log(selectedMarker);
               }}
               icon={{
                 url: "/recycle-pin.png",
@@ -296,9 +294,7 @@ function Map({ mapList, currentLocation, addCenters }) {
               lng: selectedMarker.lng,
             }}
             onCloseClick={() => {
-              console.log("window closed");
               setInfoOpen(false);
-              console.log(selectedMarker);
             }}
           >
             <div>
