@@ -68,6 +68,19 @@ function Game() {
     }
   };
 
+  //create on click forward goes to the next page
+  //it also goes to the next storyboard info
+  const clickBack = () => {
+    const pastStoryboard = currentStoryboard - 1;
+    if (pastStoryboard < story.length) {
+      setCurrentStoryboard(pastStoryboard);
+    }
+    if (pastStoryboard === 0) {
+      navigate("/game");
+      window.location.reload();
+    }
+  };
+
   //create onclick back goes to the previous page
   //goes back in storyboard info
   const clickHome = () => {
@@ -84,6 +97,7 @@ function Game() {
           text={story[currentStoryboard].text}
           clickHome={clickHome}
           clickForward={clickForward}
+          clickBack={clickBack}
           name={name}
         />
       ) : (

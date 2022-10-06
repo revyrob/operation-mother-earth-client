@@ -1,10 +1,11 @@
 @use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
 
 .excellent {
     height: 80vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     align-items: center;
     &__score {
         font-size: 30px;
@@ -22,8 +23,17 @@
         margin-right: auto;
         margin-left: auto;
         line-height: 42px;
+        @include tablet {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
     }
     &__buttons{
+        display: flex;
+        justify-content: space-around;
+    }
+    &__navigate{
+        width: 70%;
         display: flex;
         justify-content: space-around;
     }
