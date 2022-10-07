@@ -23,7 +23,7 @@ function QuestionList({ questions }) {
           questions.map((question) => (
             <li key={question._id} className="questionList__list--item">
               <img
-                onClick={this.onClick}
+                onClick={onClick}
                 className="questionList__list--plus"
                 src={plus}
                 alt={"plus drop down btn"}
