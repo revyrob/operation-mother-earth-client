@@ -6,6 +6,7 @@ import Grid from "@mui/material/Grid";
 import axios from "axios";
 import "./PracticeForm.scss";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import Modal from "react-bootstrap/Modal";
 import Button1 from "react-bootstrap/Button";
@@ -15,12 +16,13 @@ function PracticeForm() {
 
   const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  let navigate = useNavigate();
 
-  const refreshPage = () => {
-    window.location.reload();
+  const handleClose = () => {
+    setShow(false);
+    navigate("/recycling");
   };
+  const handleShow = () => setShow(true);
 
   //event handler for creating new comment
   const handleComment = (event) => {
@@ -28,7 +30,9 @@ function PracticeForm() {
     const business = event.target.business.value;
     const address = event.target.streetAddress.value;
     const city = event.target.city.value;
-
+    if (business !== "" && address !== "" && city !== "") {
+      setShow(true);
+    }
     axios
       .post(`${REACT_APP_API_SERVER_URL}recycling`, {
         business: business,
@@ -44,9 +48,9 @@ function PracticeForm() {
         }
       })
       .catch((err) => console.log(err));
-    setTimeout(() => {
-      refreshPage();
-    }, "500");
+    // setTimeout(() => {
+    //   refreshPage();
+    // }, "500");
   };
 
   return (

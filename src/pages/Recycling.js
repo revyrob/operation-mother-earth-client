@@ -16,8 +16,8 @@ export default function Recycling() {
   //state for map list
   const [mapList, setMapList] = useState(null);
   const [currentLocation, setCurrentLocation] = useState({
-    lat: 49.285,
-    lng: -123.1146,
+    lat: 49.28507657283974,
+    lng: -123.11461581337777,
   });
   const [addCenters, setAddCenters] = useState(null);
 

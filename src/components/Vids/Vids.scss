@@ -1,4 +1,6 @@
 @use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
 
 .vids {
     display: flex;
@@ -7,20 +9,31 @@
     height: 5.5rem;
     color: $color-dark;
     min-height: 10%;
-   margin: 1rem;
-   &:hover {
-    border-radius: 5px;
-    background-color: aliceblue;
-   }
-   
+    margin: 1rem;
+    @include desktop {
+        height: auto;
+    }
+ 
+    &:hover {
+        border-radius: 5px;
+        background-color: aliceblue;
+        
+    }
+    
     &__img{
         background-color: grey;
         border: 1px solid black;
         border-radius: 5px;
-        width: 100px;
-        height: 70px;
+        width: 6.25rem;
+        height: 4.375rem;
         background-image: cover;
-      
+        @include desktop {
+            width: 11.25rem;
+            height: 8.375rem;
+            &:hover {
+                border: 4px solid black;
+            }
+        }
         &--div{
             flex-wrap: wrap;
             margin-right:1rem;
@@ -29,16 +42,22 @@
     &__infoBar {
         display: flex;
         flex-direction: column;
-       
-        }
         
+    }
+    
     &__title {
         font-weight: 700;
         font-size: 0.9375rem;
-     
+        // @include desktop {
+        //     display: none;
+        // }
+        
     }
     &__author {
         font-size: 0.825rem;
+        @include desktop {
+            display: none;
+        }
     }
 }
 

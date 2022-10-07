@@ -5,13 +5,14 @@ function MainVid({ item }) {
     <div className="mainVid__div">
       <div className="mainVid__video">
         <iframe
+          className="mainVid__videoFrame"
           width="100%"
           height="100%"
           src={item.video}
           title="YouTube video player"
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen="true"
+          allowFullScreen={true}
         ></iframe>
       </div>
 

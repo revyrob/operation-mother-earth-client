@@ -64,7 +64,7 @@ a:active {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  
 }
 
 
@@ -89,17 +89,17 @@ a:active {
   &__div{
     @include tablet{
       display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      
     }
   }
   &__progressBar{
     margin-top: 10%;
     width: 90%;
-
+    
   }
   &__text{
     margin: 10% 0;
@@ -161,6 +161,7 @@ a:active {
 .education {
   display: flex;
   flex-direction: column;
+ 
   &__title {
     font-size: 24px;
     margin: 0 0 1.5rem;
@@ -174,6 +175,8 @@ a:active {
     &--div{
       display: flex;
       justify-content: space-between;
+      max-width: 1280px;
+  margin: 0 auto;
     }
     &--play {
       width: 50px;
@@ -241,27 +244,27 @@ a:active {
 }
 
 .aboutMe {
- background-color: $color-dark-transparent;
- color: rgb(62, 62, 62);
- height: 100vh;
- display: flex;
- flex-direction: column;
- justify-content: space-around;
- align-items: center;
- padding: 2rem;
- &__info{
-  text-align: center;
- }
- &__div {
-  background-color: whitesmoke;
-  border-radius: 15px;
-  padding: 1rem;
-  &--title{
+  background-color: $color-dark-transparent;
+  color: rgb(62, 62, 62);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2rem;
+  &__info{
     text-align: center;
-    text-decoration: underline;
-    color: $color-dark-transparent
   }
- }
+  &__div {
+    background-color: whitesmoke;
+    border-radius: 15px;
+    padding: 1rem;
+    &--title{
+      text-align: center;
+      text-decoration: underline;
+      color: $color-dark-transparent
+    }
+  }
   
 }
 .wave {
@@ -273,13 +276,13 @@ a:active {
 }
 @keyframes wave-animation {
   0% { transform: rotate( 0.0deg) }
- 10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
- 20% { transform: rotate(-8.0deg) }
- 30% { transform: rotate(14.0deg) }
- 40% { transform: rotate(-4.0deg) }
- 50% { transform: rotate(10.0deg) }
- 60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
-100% { transform: rotate( 0.0deg) }
+  10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
+  20% { transform: rotate(-8.0deg) }
+  30% { transform: rotate(14.0deg) }
+  40% { transform: rotate(-4.0deg) }
+  50% { transform: rotate(10.0deg) }
+  60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
+  100% { transform: rotate( 0.0deg) }
 }
 
 .game {
@@ -287,5 +290,5 @@ a:active {
     max-width: 1280px;
     margin-left: auto;
     margin-right: auto;
-}
+  }
 }

@@ -1,21 +1,43 @@
 @use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
 
 
 .mainVid {
+   
     &__div{
         width: 100%;
         background-color: $color-dark-transparent;
         display: flex;
         flex-direction: column;
         color: white;
+        @include desktop {
+            width: 75%;
+            height: auto;
+        }
     }
     &__video {
         width: 90%;
-        height: 200px;
+        height: 12.5rem;
         background-color: white;
         margin-left: auto;
         margin-right: auto;
         margin-top: 1rem;
+        border: 2px solid black;
+        border-radius: 20px;
+        @include tablet {
+            height: 25rem;
+            border: 2px solid black;
+            border-radius: 20px;
+        }
+        @include desktop {
+            height: 68vh;
+        }
+    }
+    &__videoFrame{
+        padding: .5rem;
+        border: 4px solid black;
+        border-radius: 20px;
+        
     }
     &__title {
         width: 90%;

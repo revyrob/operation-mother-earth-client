@@ -1,33 +1,48 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { useState } from "react";
 import "./QuestionList.scss";
+import plus from "../../assets/images/plus-btn.svg";
 
 function QuestionList({ questions }) {
-  // const [isShown, setIsShown] = useState(true);
+  const [isShown, setIsShown] = useState(false);
 
-  // const onClick = () => {
-  //   setIsShown(!isShown);
-  // };
+  const toggleComment = (id) => {
+    setIsShown((prev) =>
+      Boolean(!prev[id]) ? { ...prev, [id]: true } : { ...prev, [id]: false }
+    );
+  };
 
   return (
     <section className="questionList">
       <div className="questionList__header">
         <h1 className="questionList__title">Questions & Answers</h1>
         <p className="questionList__p">
-          Click on a question to reveal the answer
+          Click on{" "}
+          <img
+            className="questionList__p--img"
+            src={plus}
+            alt={"plus drop down btn"}
+          />{" "}
+          to revile the answer
         </p>
       </div>
       <ul className="questionList__list">
         {questions &&
           questions.map((question) => (
             <li key={question._id} className="questionList__list--item">
-              <Link
-                to={`questions/${question._id}`}
-                className="questionList__list--link"
-              >
-                {/* <button onClick={onClick}>(isShown ? "Hide" : "Show"</button> */}
-                {question.questions}
-                {/* {isShown && <div>{answer.questions}</div>} */}
-              </Link>
+              <img
+                onClick={() => toggleComment(question._id)}
+                className="questionList__list--plus"
+                src={plus}
+                alt={"plus drop down btn"}
+              />
+
+              {question.questions}
+              {isShown[question._id] && (
+                <div className="questionList__list--answer">
+                  {question.answer}
+                </div>
+              )}
             </li>
           ))}
       </ul>
