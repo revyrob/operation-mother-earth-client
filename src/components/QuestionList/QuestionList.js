@@ -23,7 +23,7 @@ function QuestionList({ questions }) {
             src={plus}
             alt={"plus drop down btn"}
           />{" "}
-          to revile the answer
+          to reveal the answer
         </p>
       </div>
       <ul className="questionList__list">
