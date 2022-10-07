@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import "./QuestionList.scss";
+import plus from "../../assets/images/plus-btn.svg";
 
 function QuestionList({ questions }) {
-  // const [isShown, setIsShown] = useState(true);
+  const [isShown, setIsShown] = useState(true);
 
-  // const onClick = () => {
-  //   setIsShown(!isShown);
-  // };
+  const onClick = () => {
+    setIsShown(!isShown);
+  };
 
   return (
     <section className="questionList">
@@ -20,14 +22,16 @@ function QuestionList({ questions }) {
         {questions &&
           questions.map((question) => (
             <li key={question._id} className="questionList__list--item">
-              <Link
-                to={`questions/${question._id}`}
-                className="questionList__list--link"
-              >
-                {/* <button onClick={onClick}>(isShown ? "Hide" : "Show"</button> */}
-                {question.questions}
-                {/* {isShown && <div>{answer.questions}</div>} */}
-              </Link>
+              <img
+                onClick={this.onClick}
+                className="questionList__list--plus"
+                src={plus}
+                alt={"plus drop down btn"}
+              />
+              {/* {isShown ? "Hide" : "Show"} */}
+
+              {question.questions}
+              {isShown && <div>{question.answer}</div>}
             </li>
           ))}
       </ul>

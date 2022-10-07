@@ -5,6 +5,7 @@ function MainVid({ item }) {
     <div className="mainVid__div">
       <div className="mainVid__video">
         <iframe
+          className="mainVid__videoFrame"
           width="100%"
           height="100%"
           src={item.video}

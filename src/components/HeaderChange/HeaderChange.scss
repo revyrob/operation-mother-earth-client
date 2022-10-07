@@ -2,13 +2,18 @@
 @use '../../styles/mixins' as *;
 
 .headerChange {
-    width: 100%;
+    max-width: 1280px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: white;
     height: 80px;
     padding: 1rem 3rem;
+    @include desktop {
+        margin: 0 auto;
+        padding: 1rem 0;
+    }
+    
     &__img {
         width: 30px;
         height: 40px;
@@ -26,12 +31,15 @@
             display: block;
             width: 35%;
         }
+        @include desktop {
+            width: 25%;
+        }
         
     }
     &__other--list {
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: space-between;
     }
   
 }

@@ -59,33 +59,33 @@ function AskQuestions() {
       .catch((err) => console.log(err));
   };
 
-  const getQuestionsById = (id) => {
-    axios
-      .get(`${REACT_APP_API_SERVER_URL}education/questions/${id}`)
-      .then((response) => {
-        console.log("getQuestionById", response.data);
-        setQuestion(response.data);
-      })
-      .catch((err) => console.log(err));
-  };
+  // const getQuestionsById = (id) => {
+  //   axios
+  //     .get(`${REACT_APP_API_SERVER_URL}education/questions/${id}`)
+  //     .then((response) => {
+  //       console.log("getQuestionById", response.data);
+  //       setQuestion(response.data);
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
 
   useEffect(() => {
-    if (questionId !== undefined) {
-      getQuestionsById(questionId);
-    } else {
-      getQuestions();
-    }
+    // if (questionId !== undefined) {
+    //   getQuestionsById(questionId);
+    // } else {
+    getQuestions();
+    // }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [questionId]);
+  }, []);
 
   return (
     <>
       <div>
-        {questionId !== undefined ? (
+        {/* {questionId !== undefined ? (
           <QuestionSingle question={question} />
-        ) : (
-          <QuestionList questions={questions} />
-        )}
+        ) : ( */}
+        <QuestionList questions={questions} />
+        {/* )} */}
       </div>
 
       <h1 className="form__header">Ask an E-waste Question</h1>
