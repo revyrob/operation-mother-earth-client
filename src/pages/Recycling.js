@@ -30,7 +30,7 @@ export default function Recycling() {
       navigator.geolocation.getCurrentPosition((position) => {
         const userLat = position.coords.latitude;
         const userLng = position.coords.longitude;
-        console.log(currentLocation);
+
         setCurrentLocation({ lat: userLat, lng: userLng });
 
         axios
