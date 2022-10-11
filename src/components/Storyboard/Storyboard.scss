@@ -54,4 +54,17 @@
             transform: rotate(180deg);
         }
     }
+    &__artist {
+        text-align: center;
+    }
+    &__artistName {
+        margin-top: 5rem;
+        &--name a{
+            color: $color-dark;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            &:hover{
+                color: $color-light;
+            }
+        }
+    }
 }

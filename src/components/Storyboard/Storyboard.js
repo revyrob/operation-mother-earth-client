@@ -36,6 +36,17 @@ function Storyboard({ img, text, alt, clickHome, clickForward, clickBack }) {
             />
           </button>
         </div>
+        <div className="direction__artist">
+          <p className="direction__artistName">
+            Art by:{" "}
+            <a
+              className="direction__artistName--name"
+              href="https://dribbble.com/maryiiaz"
+            >
+              Maryja Zajko
+            </a>
+          </p>
+        </div>
       </div>
 
       <NavBar />
