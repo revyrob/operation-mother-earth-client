@@ -13,11 +13,7 @@ function MapList({ mapList }) {
 
         {mapList &&
           mapList.map((item) => (
-            <MapItem
-              key={uuidv4()}
-              title={item.name}
-              address={item.formatted_address}
-            />
+            <MapItem key={uuidv4()} title={item.name} address={item.vicinity} />
           ))}
       </div>
     </section>
