@@ -59,8 +59,8 @@
     }
     &__artistName {
         margin-top: 5rem;
-        &--name a{
-            color: $color-dark;
+        &--name {
+            color: $color-light;
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             &:hover{
                 color: $color-light;

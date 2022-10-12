@@ -30,13 +30,15 @@ export default function Recycling() {
       navigator.geolocation.getCurrentPosition((position) => {
         const userLat = position.coords.latitude;
         const userLng = position.coords.longitude;
-
         setCurrentLocation({ lat: userLat, lng: userLng });
 
         axios
-          .get(`${REACT_APP_API_SERVER_URL}recycling?${userLat},${userLng}`)
+          .get(
+            `${REACT_APP_API_SERVER_URL}recycling?lat=${userLat}&lng=${userLng}`
+          )
           .then((response) => {
             setMapList(response.data);
+            // console.log(response.data);
           })
           .catch((err) => console.log(err));
       });
@@ -227,7 +229,7 @@ function Map({ mapList, currentLocation, addCenters }) {
     <>
       <GoogleMap
         ref={mapRef}
-        zoom={13}
+        zoom={12}
         center={{ lat: currentLocation.lat, lng: currentLocation.lng }}
         mapContainerClassName="map__google"
       >
