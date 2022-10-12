@@ -3,7 +3,7 @@ import MapItem from "../MapItem/MapItem";
 import { v4 as uuidv4 } from "uuid";
 
 function MapList({ mapList }) {
-  // console.log(mapList);
+  // console.log(mapList[0].vicinity);
   return (
     <section className="mapList">
       <div className="mapList__div">
