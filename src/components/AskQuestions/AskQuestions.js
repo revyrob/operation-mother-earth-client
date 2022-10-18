@@ -71,7 +71,7 @@ function AskQuestions() {
     axios
       .get(`${REACT_APP_API_SERVER_URL}education/questions`)
       .then((response) => {
-        // console.log("getQuestions", response.data);
+        console.log("getQuestions", response.data);
         setQuestions(response.data);
       })
       .catch((err) => console.log(err));
