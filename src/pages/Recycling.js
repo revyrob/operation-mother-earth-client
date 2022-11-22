@@ -39,8 +39,8 @@ export default function Recycling() {
           )
           .then((response) => {
             setMapList(response.data);
-            // console.log(response.data);
-            // console.log(currentLocation);
+            console.log(response.data);
+            console.log(currentLocation);
           })
           .catch((err) => console.log(err));
       });
