@@ -23,29 +23,36 @@ export default function Recycling() {
 
   const REACT_APP_API_SERVER_URL = process.env.REACT_APP_API_SERVER_URL;
 
-  //get recycling centers data, pass it to the Hook
-  //and pass it to the MapList
-  const getMapInfo = () => {
+  //get geolocation function
+  //I am still having problems with it setting the currentLocation to the default and having to update something in the code to make the location update to my location
+  const getGeoLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-        const userLat = position.coords.latitude;
-        const userLng = position.coords.longitude;
+        let userLat = position.coords.latitude;
+        let userLng = position.coords.longitude;
         setCurrentLocation({ lat: userLat, lng: userLng });
-
-        axios
-          .get(
-            `${REACT_APP_API_SERVER_URL}recycling?lat=49.095001&lng=-117.709999`
-          )
-          .then((response) => {
-            setMapList(response.data);
-            console.log(response.data);
-          })
-          .catch((err) => console.log(err));
+        console.log(userLat);
+        console.log(userLng);
       });
     } else {
       //alert!
       alert(`Geolocation is not supported by your browser.`);
     }
+  };
+
+  //get recycling centers data, pass it to the Hook
+  //and pass it to the MapList
+  const getMapInfo = () => {
+    getGeoLocation();
+    axios
+      .get(
+        `${REACT_APP_API_SERVER_URL}recycling?lat=${currentLocation.lat}&lng=${currentLocation.lng}`
+      )
+      .then((response) => {
+        setMapList(response.data);
+        console.log(response.data);
+      })
+      .catch((err) => console.log(err));
   };
 
   const getAddCenters = () => {
