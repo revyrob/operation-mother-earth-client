@@ -14,7 +14,7 @@ import HeaderChange from "../components/HeaderChange/HeaderChange";
 
 export default function Recycling() {
   //state for map list
-  const [mapList, setMapList] = useState(null);
+  const [mapList, setMapList] = useState([]);
   const [currentLocation, setCurrentLocation] = useState({
     lat: 49.28507657283974,
     lng: -123.11461581337777,
@@ -31,6 +31,7 @@ export default function Recycling() {
         const userLat = position.coords.latitude;
         const userLng = position.coords.longitude;
         setCurrentLocation({ lat: userLat, lng: userLng });
+        // console.log(userLat, userLng);
 
         axios
           .get(
@@ -39,6 +40,7 @@ export default function Recycling() {
           .then((response) => {
             setMapList(response.data);
             // console.log(response.data);
+            // console.log(currentLocation);
           })
           .catch((err) => console.log(err));
       });
@@ -224,7 +226,7 @@ function Map({ mapList, currentLocation, addCenters }) {
   let [infoOpenJson, setInfoOpenJson] = useState(false);
   //use refs for map
   const mapRef = useRef();
-
+  console.log(mapList);
   return (
     <>
       <GoogleMap

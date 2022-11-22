@@ -140,8 +140,9 @@ a:active {
       font-size: 20px;
       border-radius: 30px;
       margin: 1rem 0;
-      background-color: $color-light;
+      background-color: $color-dark-sec;
       border: 1px solid $color-dark;
+      color:$color-accent;
     }
     &--wrong{
       background-color: red;
