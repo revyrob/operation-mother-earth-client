@@ -31,16 +31,14 @@ export default function Recycling() {
         const userLat = position.coords.latitude;
         const userLng = position.coords.longitude;
         setCurrentLocation({ lat: userLat, lng: userLng });
-        // console.log(userLat, userLng);
 
         axios
           .get(
-            `${REACT_APP_API_SERVER_URL}recycling?lat=${userLat}&lng=${userLng}`
+            `${REACT_APP_API_SERVER_URL}recycling?lat=49.095001&lng=-117.709999`
           )
           .then((response) => {
             setMapList(response.data);
             console.log(response.data);
-            console.log(currentLocation);
           })
           .catch((err) => console.log(err));
       });
