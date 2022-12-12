@@ -30,13 +30,15 @@ function QuestionList({ questions }) {
         {questions &&
           questions.map((question) => (
             <li key={question._id} className="questionList__list--item">
-              <img
-                onClick={() => toggleComment(question._id)}
-                className="questionList__list--plus"
-                src={plus}
-                alt={"plus drop down btn"}
-              />
-              <p className="questionList__list--p">{question.questions}</p>
+              <div className="questionList__wrapper">
+                <img
+                  onClick={() => toggleComment(question._id)}
+                  className="questionList__list--plus"
+                  src={plus}
+                  alt={"plus drop down btn"}
+                />
+                <p className="questionList__list--p">{question.questions}</p>
+              </div>
               {isShown[question._id] && (
                 <div className="questionList__list--answer">
                   {question.answer}
