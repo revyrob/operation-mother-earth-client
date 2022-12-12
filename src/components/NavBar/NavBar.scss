@@ -5,15 +5,13 @@
 .nav {
    
     &__style {
-        max-width: 450px;
-        margin: 0 auto;
+        
         background-color: white;
         color:white;
         border-top: 1px solid black;
         position: fixed;
         right: 0;
         bottom: 0;
-        border-top: 1px solid black;
         height: 65px;
         width: 100%;
         display: flex;

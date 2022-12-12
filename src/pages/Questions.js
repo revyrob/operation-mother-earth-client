@@ -47,6 +47,7 @@ function Questions() {
 
     if (answerSelected === isCorrect) {
       setAnswerCorrect(true);
+
       if (!answerTimer) {
         answerTimer = setTimeout(() => {
           setAnswerCorrect(false);
@@ -117,11 +118,9 @@ function Questions() {
                       )
                     }
                     className={
-                      answerSelected && answerCorrect && answerOption.isCorrect
+                      answerOption.isCorrect && answerSelected && answerCorrect
                         ? "questions__btn--correct"
-                        : answerOption !== answerSelected
-                        ? "questions__btn"
-                        : "questions__btn--wrong"
+                        : "questions__btn"
                     }
                   >
                     {answerOption.answer}

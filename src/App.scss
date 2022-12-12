@@ -139,8 +139,10 @@ a:active {
     border-radius: 30px;
     margin: 1rem 0;
     background-color: $color-accent-sec;
-    border: 1px solid $color-dark;
-   
+    border: 3px solid $color-dark-sec;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    transition: background-color 0.5s;
+
     
     &--correct {
       padding: .5rem 2rem;
@@ -148,8 +150,16 @@ a:active {
       border-radius: 30px;
       margin: 1rem 0;
       background-color: $color-dark-sec;
-      border: 1px solid $color-dark;
+      border: 6px solid $color-dark-sec;
       color:$color-accent;
+      transition: background-color 0.5s;
+
+      &:hover {
+        color: white;
+        background-color: $color-dark-sec;
+        transition: background-color 0.5s;
+        
+      }
     }
     &--wrong{
       background-color: red;
@@ -158,10 +168,16 @@ a:active {
       border-radius: 30px;
       margin: 1rem 0;
       border: 1px solid $color-dark;
+      &:hover {
+        color: white;
+        background-color: red;
+        
+      }
     }
     &:hover {
       color: white;
-      background-color: red;
+      background-color: $color-dark;
+      transition: background-color 0.5s;
       
     }
   }

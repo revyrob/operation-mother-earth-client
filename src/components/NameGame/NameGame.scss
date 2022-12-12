@@ -57,8 +57,7 @@
         
     }
 }
-// .navbar {
-//     @include tablet {
-//         display: none;
-//     }
-// }
+.navbar {
+    max-width: 450px;
+        margin: 0 auto;
+}
