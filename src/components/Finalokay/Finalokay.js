@@ -1,9 +1,7 @@
 import "./Finalokay.scss";
 import img from "../../assets/images/mother-nature-good.png";
-import ButtonSm from "../ButtonSm/ButtonSm";
-import { Link } from "react-router-dom";
+
 import NavBar from "../NavBar/NavBar";
-import home from "../../assets/icons/home-icon.svg";
 
 function Finalokay({ score }) {
   let userName = sessionStorage.getItem("name");

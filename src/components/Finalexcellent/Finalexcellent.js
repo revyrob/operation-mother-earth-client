@@ -1,8 +1,6 @@
 import "./Finalexcellent.scss";
 import img from "../../assets/images/mother-nature-great.png";
-import home from "../../assets/icons/home-icon.svg";
-import ButtonSm from "../ButtonSm/ButtonSm";
-import { Link } from "react-router-dom";
+
 import NavBar from "../NavBar/NavBar";
 
 function Finalexcellent({ score }) {
