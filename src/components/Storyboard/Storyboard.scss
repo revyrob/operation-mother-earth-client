@@ -30,30 +30,37 @@
         font-size: 20px;
         margin: 0 2rem;
     }
-    &__bottom {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
+
 }
 .direction {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 70%;
+    width: 55%;
     margin: 1.5rem  auto;
    
-    &__forward, &__back, &__home {
-        background-color: white;
+    &__back {
+        background-color: $color-dark;
+        color:white;
+        border-radius: 5px;
+        padding: .5rem 2rem;
+        text-transform: uppercase;
         border: none;
+        box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
+        
     }
-    &__icon{
-        width: 50px;
-        height: 50px;
-        &--reverse {
-            transform: rotate(180deg);
-        }
+    &__forward {
+        background-color: $color-light;
+        color:white;
+        border-radius: 5px;
+        padding: .5rem 2rem;
+        text-transform: uppercase;
+        border: none;
+        box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
     }
+ 
     &__artist {
         text-align: center;
     }

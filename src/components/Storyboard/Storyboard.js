@@ -15,25 +15,17 @@ function Storyboard({ img, text, alt, clickHome, clickForward, clickBack }) {
         </div>
         <div className="direction">
           <button onClick={clickBack} className="direction__back">
-            <img
-              className="direction__icon--reverse"
-              src={forwardBtn}
-              alt={"forward button"}
-            />
+            Back
           </button>
-          <button onClick={clickHome} className="direction__home">
+          {/* <button onClick={clickHome} className="direction__home">
             <img
               className="direction__icon"
               src={home}
               alt={"forward button"}
             />
-          </button>
+          </button> */}
           <button onClick={clickForward} className="direction__forward">
-            <img
-              className="direction__icon"
-              src={forwardBtn}
-              alt={"forward button"}
-            />
+            Next
           </button>
         </div>
         <div className="direction__artist">
