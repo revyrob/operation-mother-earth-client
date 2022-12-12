@@ -57,8 +57,7 @@ function Game() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  //create on click forward goes to the next page
-  //it also goes to the next storyboard info
+  //click forward goes to the next page
   const clickForward = () => {
     const nextStoryboard = currentStoryboard + 1;
     if (nextStoryboard < story.length) {
@@ -68,21 +67,19 @@ function Game() {
     }
   };
 
-  //create on click forward goes to the next page
-  //it also goes to the next storyboard info
+  //create on click back goes to the previous page
   const clickBack = () => {
     const pastStoryboard = currentStoryboard - 1;
     if (pastStoryboard < story.length) {
       setCurrentStoryboard(pastStoryboard);
     }
     if (pastStoryboard === 0) {
-      navigate("/game");
+      setStoryGame(false);
       window.location.reload();
     }
   };
 
-  //create onclick back goes to the previous page
-  //goes back in storyboard info
+  //click home goes to the homepage
   const clickHome = () => {
     navigate("/");
   };

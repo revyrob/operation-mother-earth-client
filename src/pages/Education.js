@@ -11,7 +11,6 @@ function Education() {
 
   const toggleHandle = (category) => {
     setSelected(!selected);
-    console.log("this is selected");
   };
 
   return (
