@@ -36,8 +36,7 @@ function QuestionList({ questions }) {
                 src={plus}
                 alt={"plus drop down btn"}
               />
-
-              {question.questions}
+              <p className="questionList__list--p">{question.questions}</p>
               {isShown[question._id] && (
                 <div className="questionList__list--answer">
                   {question.answer}

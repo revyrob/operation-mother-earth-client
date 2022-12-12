@@ -21,12 +21,16 @@
     &__list {
        
         color:black;
-        padding: 0;      
+        padding: 0;  
+        &--p{
+            margin-bottom:0;
+        }    
         &--item {
             color: black;
             border-bottom: 1px solid $color-light-sec;
-            padding: 0 1rem;
+            padding: 1rem;
             margin: 1rem 0;
+            display: flex;
            
         }
         &--link {
