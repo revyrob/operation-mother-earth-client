@@ -19,7 +19,7 @@ function Finalexcellent({ score }) {
       <p className="excellent__text">
         It means that the robots are well educated and you saved Mother Earth!
       </p>
-      <div className="excellent__navigate">
+      {/* <div className="excellent__navigate">
         <div className="excellent__buttons">
           <Link to="/game">
             <ButtonSm text={"Play Again"} />
@@ -34,7 +34,7 @@ function Finalexcellent({ score }) {
             />
           </div>
         </Link>
-      </div>
+      </div> */}
       <NavBar />
     </div>
   );

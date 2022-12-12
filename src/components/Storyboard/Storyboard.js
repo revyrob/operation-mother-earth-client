@@ -1,9 +1,7 @@
 import "./Storyboard.scss";
-import forwardBtn from "../../assets/icons/earth-forward-icon.png";
-import home from "../../assets/icons/home-icon.svg";
 import NavBar from "../NavBar/NavBar";
 
-function Storyboard({ img, text, alt, clickHome, clickForward, clickBack }) {
+function Storyboard({ img, text, alt, clickForward, clickBack }) {
   return (
     <section className="storyboard">
       <div className="storyboard__img--div">

@@ -121,12 +121,8 @@ a:active {
   &__answers{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    @include tablet {
-      width: 50%;
-      margin: 0 2rem;
-    }
-    
+    align-items: center;
+   
   }
   &__btn {
     padding: .5rem 2rem;
@@ -135,6 +131,8 @@ a:active {
     margin: 1rem 0;
     background-color: $color-accent-sec;
     border: 1px solid $color-dark;
+   
+    
     &--correct {
       padding: .5rem 2rem;
       font-size: 20px;
@@ -154,7 +152,7 @@ a:active {
     }
     &:hover {
       color: white;
-      background-color: $color-dark;
+      background-color: red;
       
     }
   }

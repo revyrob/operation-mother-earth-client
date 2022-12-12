@@ -19,7 +19,7 @@ function Finalimprove({ score }) {
       <p className="improve__text">
         It means the robots still need help. Try the game again.
       </p>
-      <div className="excellent__navigate">
+      {/* <div className="excellent__navigate">
         <div className="excellent__buttons">
           <Link to="/game">
             <ButtonSm text={"Play Again"} />
@@ -34,7 +34,7 @@ function Finalimprove({ score }) {
             />
           </div>
         </Link>
-      </div>
+      </div> */}
       <NavBar />
     </div>
   );

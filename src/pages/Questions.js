@@ -119,7 +119,9 @@ function Questions() {
                     className={
                       answerSelected && answerCorrect && answerOption.isCorrect
                         ? "questions__btn--correct"
-                        : "questions__btn"
+                        : answerOption !== answerSelected
+                        ? "questions__btn"
+                        : "questions__btn--wrong"
                     }
                   >
                     {answerOption.answer}

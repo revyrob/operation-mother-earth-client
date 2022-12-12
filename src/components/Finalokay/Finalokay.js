@@ -20,7 +20,7 @@ function Finalokay({ score }) {
         It means that the robots are okay but could use another update. Try the
         game again.
       </p>
-      <div className="excellent__navigate">
+      {/* <div className="excellent__navigate">
         <div className="excellent__buttons">
           <Link to="/game">
             <ButtonSm text={"Play Again"} />
@@ -35,7 +35,7 @@ function Finalokay({ score }) {
             />
           </div>
         </Link>
-      </div>
+      </div> */}
       <NavBar />
     </div>
   );
