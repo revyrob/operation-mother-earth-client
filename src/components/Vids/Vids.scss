@@ -3,6 +3,7 @@
 
 
 .vids {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     justify-content:left;
     align-items: flex-start;
@@ -10,9 +11,9 @@
     color: $color-dark;
     min-height: 10%;
     margin: 1rem;
-    @include desktop {
-        height: auto;
-    }
+    // @include desktop {
+    //     height: auto;
+    // }
  
     &:hover {
         border-radius: 5px;
@@ -27,13 +28,13 @@
         width: 6.25rem;
         height: 4.375rem;
         background-image: cover;
-        @include desktop {
-            width: 11.25rem;
-            height: 8.375rem;
-            &:hover {
-                border: 4px solid black;
-            }
-        }
+        // @include desktop {
+        //     width: 11.25rem;
+        //     height: 8.375rem;
+        //     &:hover {
+        //         border: 4px solid black;
+        //     }
+        // }
         &--div{
             flex-wrap: wrap;
             margin-right:1rem;
@@ -55,9 +56,9 @@
     }
     &__author {
         font-size: 0.825rem;
-        @include desktop {
-            display: none;
-        }
+        // @include desktop {
+        //     display: none;
+        // }
     }
 }
 

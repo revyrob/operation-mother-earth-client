@@ -3,13 +3,15 @@
 
 
 .nav {
-
+   
     &__style {
+        max-width: 450px;
+        margin: 0 auto;
         background-color: white;
         color:white;
         border-top: 1px solid black;
         position: fixed;
-        left: 0;
+        right: 0;
         bottom: 0;
         border-top: 1px solid black;
         height: 65px;
@@ -17,9 +19,9 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        @include tablet {
-            display: none;
-        }
+        // @include tablet {
+        //     display: none;
+        // }
     }
     &__img{
         margin: 1rem 0;

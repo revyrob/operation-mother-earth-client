@@ -3,20 +3,21 @@
 
 
 .vidList {
-    @include desktop { 
-        width: 25%;
-        margin-top: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        align-items:flex-start;
-        justify-content: space-around;
-    }
+   
+    // @include desktop { 
+    //     width: 25%;
+    //     margin-top: 1.5rem;
+    //     display: flex;
+    //     flex-direction: column;
+    //     align-items:flex-start;
+    //     justify-content: space-around;
+    // }
     &__title {
         text-align: center;
         margin-top: 2rem;
-        @include desktop { 
-            display: none;
-        }
+        // @include desktop { 
+        //     display: none;
+        // }
     }
 
 }

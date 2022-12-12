@@ -1,8 +1,9 @@
 @use '../../styles/variables' as *;
 
 .educationRead{
-    max-width: 1280px;
-    margin: 0 auto;  
+    max-width: 450px;
+    max-height: 750px;
+    margin: 0 auto; 
     &__header {
         background-color: $color-dark-transparent;
         color: white;

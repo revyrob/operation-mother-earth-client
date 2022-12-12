@@ -3,9 +3,10 @@
 
 
 .educationPlay {
-    max-width: 1280px;
-    margin: 0 auto;    
-    @include desktop {
-        display: flex;
-    }
+    max-width: 450px;
+  max-height: 750px;
+  margin: 0 auto;
+    // @include desktop {
+    //     display: flex;
+    // }
 }

@@ -13,15 +13,15 @@
         align-items: center;
         justify-content: center;
         padding: 2rem 0;
-        @include tablet {
-            flex-direction: row;
-            justify-content: space-around;
-        }
-        @include desktop {
-            max-width: 960px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        // @include tablet {
+        //     flex-direction: row;
+        //     justify-content: space-around;
+        // }
+        // @include desktop {
+        //     max-width: 960px;
+        //     margin-left: auto;
+        //     margin-right: auto;
+        // }
     }
     &__div--extra {
         display: flex;

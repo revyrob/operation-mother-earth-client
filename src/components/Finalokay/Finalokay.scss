@@ -6,6 +6,10 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    max-width: 450px;
+  max-height: 750px;
+  margin: 0 auto;
+    
     &__score {
         font-size: 30px;
         display: flex;
@@ -18,9 +22,8 @@
     }
     &__text {
         font-size: 24px;
-        width: 80vw;
-        margin-right: auto;
-        margin-left: auto;
+        // width: 80vw;
+       
         line-height: 42px;
     }
     &__buttons{
