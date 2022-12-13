@@ -1,39 +1,26 @@
 import "./Finalokay.scss";
 import img from "../../assets/images/mother-nature-good.png";
-
 import NavBar from "../NavBar/NavBar";
+import { Link } from "react-router-dom";
 
-function Finalokay({ score }) {
+function Finalokay({ score, text }) {
   let userName = sessionStorage.getItem("name");
 
   return (
     <div className="okay">
-      <h1 className="excellent__score">{userName}'s score:</h1>
+      <h1 className="okay__score">{userName}'s score:</h1>
 
-      <h2 className="excellent__score--score">
-        {Math.floor((score / 150) * 100)}%
-      </h2>
+      <h2 className="okay__score--score">{Math.floor((score / 150) * 100)}%</h2>
       <img src={img} alt="mother nature sad" />
-      <p className="okay__text">
-        It means that the robots are okay but could use another update. Try the
-        game again.
-      </p>
-      {/* <div className="excellent__navigate">
-        <div className="excellent__buttons">
-          <Link to="/game">
-            <ButtonSm text={"Play Again"} />
-          </Link>
-        </div>
-        <Link to="/">
-          <div className="excellent__home">
-            <img
-              className="direction__icon"
-              src={home}
-              alt={"forward button"}
-            />
-          </div>
+      <p className="okay__text">{text}</p>
+      <div className="okay__navigate">
+        <Link to="/game">
+          <button className="okay__button">
+            {" "}
+            <p className="okay__p">{"Play Again"}</p>
+          </button>
         </Link>
-      </div> */}
+      </div>
       <NavBar />
     </div>
   );

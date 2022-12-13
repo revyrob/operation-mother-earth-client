@@ -2,9 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Line } from "rc-progress";
 import { v4 as uuidv4 } from "uuid";
-import Finalimprove from "../components/Finalimprove/Finalimprove";
 import Finalokay from "../components/Finalokay/Finalokay";
-import Finalexcellent from "../components/Finalexcellent/Finalexcellent";
 import NavBar from "../components/NavBar/NavBar";
 import HeaderChange from "../components/HeaderChange/HeaderChange";
 
@@ -85,11 +83,24 @@ function Questions() {
       <HeaderChange />
       {showScore ? (
         score <= 75 ? (
-          <Finalimprove score={score} />
+          <Finalokay
+            score={score}
+            text={
+              "It means that the robots are okay but could use another update. Try the game again."
+            }
+          />
         ) : score <= 120 ? (
-          <Finalokay score={score} />
+          <Finalokay
+            score={score}
+            text={"It means the robots still need help. Try the game again."}
+          />
         ) : (
-          <Finalexcellent score={score} />
+          <Finalokay
+            score={score}
+            text={
+              "It means that the robots are well educated and you saved Mother Earth!"
+            }
+          />
         )
       ) : (
         <div className="questions">
