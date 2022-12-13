@@ -1,15 +1,16 @@
 import "./ButtonBar.scss";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
-function ButtonBar({ text1, text2, link1, link2 }) {
+function ButtonBar({ text1, text2, link2, link1 }) {
   return (
     <div className="buttonBar">
-      <Link to={link1}>
+      <HashLink to={link1}>
         <button className="buttonBar__button">
           {" "}
           <p className="buttonBar__text">{text1}</p>
         </button>
-      </Link>
+      </HashLink>
 
       <Link to={link2}>
         <button className="buttonBar__button1">
