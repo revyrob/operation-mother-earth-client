@@ -210,7 +210,7 @@ export default function Recycling() {
             text={"E-Waste Recycling Near You"}
           />
           <Link to="/recycling/add">
-            <ButtonBar text={"+ Add Center"} />
+            <ButtonBar text1={"Go to List"} text2={"+ Add Center"} />
           </Link>
           <Map
             mapList={mapList}

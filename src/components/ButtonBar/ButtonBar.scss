@@ -1,28 +1,44 @@
 @use '../../styles/variables' as *;
 
 .buttonBar {
-    background-color: $color-dark-transparent;
+    // background-color: $color-dark-transparent;
     color: white;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     height: 50px;
     margin-top: 1rem;
+    &__button1 {
+        background-color: $color-light;
+        color:white;
+        border-radius: 5px;
+        padding: .5rem 2rem;
+        text-transform: uppercase;
+        border: none;
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);        
+       &:hover {
+            background-color: $color-light-transparent;
+        }
+    }
     &__button {
-        background-color: white;
-        border-radius: 30px;
-        width: 160px;
-        height: 34px;
-        &:hover {
+        background-color: $color-dark;
+        color:white;
+        border-radius: 5px;
+        padding: .5rem 2rem;
+        text-transform: uppercase;
+        border: none;
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);        
+       &:hover {
             background-color: $color-dark-transparent;
-            
         }
     }
     &__text {
         font-size: 16px;
-        color: $color-dark;
+        color:white;
         font-family: $font-primary;
         text-transform: uppercase;
+        margin-bottom: 0;
+
         &:hover {
             color: white;
         }
