@@ -31,8 +31,15 @@ export default function Recycling() {
         let userLat = position.coords.latitude;
         let userLng = position.coords.longitude;
         setCurrentLocation({ lat: userLat, lng: userLng });
-        console.log(userLat);
-        console.log(userLng);
+        axios
+          .get(
+            `${REACT_APP_API_SERVER_URL}recycling?lat=${userLat}&lng=${userLng}`
+          )
+          .then((response) => {
+            setMapList(response.data);
+            console.log(response.data);
+          })
+          .catch((err) => console.log(err));
       });
     } else {
       //alert!
@@ -44,15 +51,6 @@ export default function Recycling() {
   //and pass it to the MapList
   const getMapInfo = () => {
     getGeoLocation();
-    axios
-      .get(
-        `${REACT_APP_API_SERVER_URL}recycling?lat=${currentLocation.lat}&lng=${currentLocation.lng}`
-      )
-      .then((response) => {
-        setMapList(response.data);
-        console.log(response.data);
-      })
-      .catch((err) => console.log(err));
   };
 
   const getAddCenters = () => {
@@ -210,15 +208,20 @@ export default function Recycling() {
             text={"E-Waste Recycling Near You"}
           />
           <Link to="/recycling/add">
-            <ButtonBar text1={"Go to List"} text2={"+ Add Center"} />
+            <ButtonBar
+              text1={"Go to List"}
+              text2={"+ Add Center"}
+              link2={"/recycling/add"}
+              link1={"/recycling#list"}
+            />
           </Link>
           <Map
             mapList={mapList}
             currentLocation={currentLocation}
             addCenters={addCenters}
           />
-          <MapList mapList={mapList} />
         </section>
+        <MapList mapList={mapList} />
         <NavBar />
       </>
     );
