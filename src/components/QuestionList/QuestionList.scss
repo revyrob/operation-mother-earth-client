@@ -13,14 +13,17 @@
        padding-bottom: .75rem;
     }
     &__p{
-        font-size: 18px;
+        font-size: 22px;
         &--img{
             height:22px;
+           
         }
     }
     &__wrapper {
         display: flex;
        align-items: center;
+       max-height: 4rem;
+       margin-bottom: 1rem;
 
     }
     &__list {
@@ -42,10 +45,14 @@
         &--plus{
             cursor:pointer;
             margin-right: 1rem;
+           
         }
         &--answer {
-            margin-left: 4rem;
+            margin: 0 0 1rem 4rem;
             color: $color-dark-sec;
+        }
+        &--p {
+            margin:0;
         }
     }
 }
