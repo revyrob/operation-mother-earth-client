@@ -37,7 +37,6 @@ export default function Recycling() {
           )
           .then((response) => {
             setMapList(response.data);
-            console.log(response.data);
           })
           .catch((err) => console.log(err));
       });
@@ -234,7 +233,6 @@ function Map({ mapList, currentLocation, addCenters }) {
   let [infoOpenJson, setInfoOpenJson] = useState(false);
   //use refs for map
   const mapRef = useRef();
-  console.log(mapList);
   return (
     <>
       <GoogleMap

@@ -78,9 +78,7 @@ function Questions() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    console.log("answerSelected", answerSelected);
-  }, [answerSelected]);
+  useEffect(() => {}, [answerSelected]);
 
   return (
     <>
