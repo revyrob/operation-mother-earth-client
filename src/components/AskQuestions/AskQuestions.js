@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-// import { useParams } from "react-router-dom";
 import QuestionList from "../QuestionList/QuestionList";
 import { Formik, Form } from "formik";
 import Button from "@mui/material/Button";
@@ -11,8 +10,7 @@ import Button1 from "react-bootstrap/Button";
 
 function AskQuestions() {
   const [questions, setQuestions] = useState(null);
-  // const [question, setQuestion] = useState(null);
-  // const { questionId } = useParams();
+
   const [show, setShow] = useState(false);
 
   const REACT_APP_API_SERVER_URL = process.env.REACT_APP_API_SERVER_URL;
@@ -26,19 +24,6 @@ function AskQuestions() {
     setShow(false);
   };
   const handleShow = () => setShow(true);
-
-  //sets the name for user
-  // const setNameHandler = (e) => {
-  //   const userName = e.target.name.value;
-  //   e.preventDefault();
-  //   if (userName === "") {
-  //     setShow(true);
-  //     e.preventDefault();
-  //   } else {
-  //     setName(userName);
-  //     setStoryGame(true);
-  //   }
-  // };
 
   //event handler for creating new comment
   const handleComment = (event) => {
@@ -62,9 +47,6 @@ function AskQuestions() {
         }
       })
       .catch((err) => console.log(err));
-    // setTimeout(() => {
-    //   refreshPage();
-    // }, "1000");
   };
 
   const getQuestions = () => {
@@ -77,22 +59,9 @@ function AskQuestions() {
       .catch((err) => console.log(err));
   };
 
-  // const getQuestionsById = (id) => {
-  //   axios
-  //     .get(`${REACT_APP_API_SERVER_URL}education/questions/${id}`)
-  //     .then((response) => {
-  //       console.log("getQuestionById", response.data);
-  //       setQuestion(response.data);
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
-
   useEffect(() => {
-    // if (questionId !== undefined) {
-    //   getQuestionsById(questionId);
-    // } else {
     getQuestions();
-    // }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
