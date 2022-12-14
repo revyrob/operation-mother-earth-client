@@ -10,10 +10,7 @@
         display: flex;
         flex-direction: column;
         color: white;
-        // @include desktop {
-        //     width: 75%;
-        //     height: auto;
-        // }
+    
     }
     &__video {
         width: 90%;
@@ -24,14 +21,7 @@
         margin-top: 1rem;
         border: 2px solid black;
         border-radius: 20px;
-        // @include tablet {
-        //     height: 25rem;
-        //     border: 2px solid black;
-        //     border-radius: 20px;
-        // }
-        // @include desktop {
-        //     height: 68vh;
-        // }
+
     }
     &__videoFrame{
         padding: .5rem;

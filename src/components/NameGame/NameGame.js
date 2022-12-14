@@ -3,7 +3,6 @@ import game from "../../assets/icons/game-icon.svg";
 import namePic from "../../assets/images/mother-name.png";
 import TitleHeader from "../TitleHeader/TitleHeader";
 import forward from "../../assets/icons/earth-forward-icon.png";
-import NavBar from "../NavBar/NavBar";
 import HeaderChange from "../HeaderChange/HeaderChange";
 
 function NameGame({ nameHandler }) {
@@ -40,9 +39,6 @@ function NameGame({ nameHandler }) {
           </label>
         </form>
       </section>
-      {/* <section className="navbar">
-        <NavBar />
-      </section> */}
     </>
   );
 }

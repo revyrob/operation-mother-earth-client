@@ -2,38 +2,23 @@
 @use '../../styles/mixins' as *;
 
 .headerChange {
-    // max-width: 1280px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: white;
     height: 80px;
     padding: 1rem 3rem;
-    // @include desktop {
-    //     margin: 0 auto;
-    //     padding: 1rem 0;
-    // }
+
     
     &__img {
         width: 30px;
         height: 40px;
         
     }
-    &__home {
-        // @include tablet{
-        //     margin-right: auto;
-        // }
-        
-    }
+ 
     &__other {
         display:none;
-        // @include tablet {
-        //     display: block;
-        //     width: 35%;
-        // }
-        // @include desktop {
-        //     width: 25%;
-        // }
+  
         
     }
     &__other--list {

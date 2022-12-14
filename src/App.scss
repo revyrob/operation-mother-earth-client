@@ -95,19 +95,7 @@ a:active {
   flex-direction: column;
   align-items: center;
   min-height: 80vh;
-  // @include tablet {
-  //   justify-content: space-between;
-  // }
-  // &__div{
-  //   @include tablet{
-  //     display: flex;
-  //     flex-direction: row;
-  //     justify-content: space-between;
-  //     align-items: center;
-  //     width: 90%;
-      
-  //   }
-  // }
+
   &__progressBar{
     margin-top: 10%;
     width: 90%;
@@ -121,13 +109,7 @@ a:active {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    // @include tablet {
-    //   width: 50%;
-    //   background-color: $color-dark-sec;
-    //   color: white;
-    //   border-radius: 30px;
-    //   padding: 10rem 2rem;
-    // }
+
     
   }
   &__answers{
@@ -318,10 +300,6 @@ a:active {
   max-width: 450px;
   max-height: 750px;
   margin: 0 auto;
-  // @include desktop {
-  //   max-width: 1280px;
-  //   margin-left: auto;
-  //   margin-right: auto;
-  // }
+
 }
 

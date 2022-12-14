@@ -13,15 +13,6 @@
         align-items: center;
         justify-content: space-between;
         padding: 2rem 0;
-        // @include tablet {
-        //     flex-direction: row;
-        //     justify-content: space-around;
-        // }
-        // @include desktop {
-        //     max-width: 960px;
-        //     margin-left: auto;
-        //     margin-right: auto;
-        // }
     }
     &__div--extra {
         display: flex;

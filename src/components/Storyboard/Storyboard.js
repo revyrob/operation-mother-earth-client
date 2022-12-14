@@ -1,5 +1,4 @@
 import "./Storyboard.scss";
-import NavBar from "../NavBar/NavBar";
 
 function Storyboard({ img, text, alt, clickForward, clickBack }) {
   return (
@@ -15,13 +14,7 @@ function Storyboard({ img, text, alt, clickForward, clickBack }) {
           <button onClick={clickBack} className="direction__back">
             Back
           </button>
-          {/* <button onClick={clickHome} className="direction__home">
-            <img
-              className="direction__icon"
-              src={home}
-              alt={"forward button"}
-            />
-          </button> */}
+
           <button onClick={clickForward} className="direction__forward">
             Next
           </button>
