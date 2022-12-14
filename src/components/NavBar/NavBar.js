@@ -11,16 +11,28 @@ function NavBar() {
       <div className="phantomStyle" />
       <div className="nav__style">
         <Link to="/">
-          <img src={home} alt="home button" className="nav__img" />
+          <div className="nav__div">
+            <img src={home} alt="home button" className="nav__img" />
+            <p className="nav__subtitle">Home</p>
+          </div>
         </Link>
         <Link to="/education">
-          <img src={education} alt="education button" className="nav__img" />
+          <div className="nav__div">
+            <img src={education} alt="education button" className="nav__img" />
+            <p className="nav__subtitle">Education</p>
+          </div>
         </Link>
         <Link to="/game">
-          <img src={game} alt="game button" className="nav__img" />
+          <div className="nav__div">
+            <img src={game} alt="game button" className="nav__img" />
+            <p className="nav__subtitle">Game</p>
+          </div>
         </Link>
         <Link to="/recycling">
-          <img src={recycling} alt="recycling button" className="nav__img" />
+          <div className="nav__div">
+            <img src={recycling} alt="recycling button" className="nav__img" />
+            <p className="nav__subtitle">Centers</p>
+          </div>
         </Link>
       </div>
     </section>

@@ -2,7 +2,6 @@
 @use "../../styles/mixins" as *;
 
 .nav {
-
   &__style {
     max-width: 450px;
     margin: 0 auto;
@@ -12,7 +11,7 @@
     position: fixed;
     // right: 0;
     bottom: 0;
-    height: 65px;
+    height: 55px;
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -22,7 +21,7 @@
     // }
   }
   &__img {
-    margin: 1rem 0;
+    margin-top: .5rem;
     height: 30px;
     width: 30px;
     &:hover {
@@ -31,6 +30,15 @@
       border-radius: 50%;
       background-image: radial-gradient(white, green);
     }
+  }
+  &__div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__subtitle {
+    margin:0;
+    color:black;
   }
 }
 .phantomStyle {

@@ -1,0 +1,38 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.form {
+   
+    max-width: 450px;
+    max-height: 750px;
+    margin: 3rem auto 1rem; 
+    padding: 0 1rem;   
+    
+    &__header {
+        max-width: 450px;
+        max-height: 750px;
+        padding: 0 5rem;
+        margin: 2.5rem auto 0;
+        text-align: center;
+    }
+    &__section {
+        display: flex;
+        flex-direction: column;
+        min-height: 80vh;
+    }
+}
+
+.btn__form {
+
+    background-color: $color-light;
+    color:white;
+    border-radius: 5px;
+    padding: .5rem 2rem;
+    text-transform: uppercase;
+    border: none;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);        
+   &:hover {
+        background-color: $color-light-transparent;
+    }
+
+}

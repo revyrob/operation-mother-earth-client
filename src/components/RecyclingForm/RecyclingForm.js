@@ -4,14 +4,13 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
 import axios from "axios";
-import "./PracticeForm.scss";
+import "./RecyclingForm.scss";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import Modal from "react-bootstrap/Modal";
 import Button1 from "react-bootstrap/Button";
 
-function PracticeForm() {
+function RecyclingForm() {
   const REACT_APP_API_SERVER_URL = process.env.REACT_APP_API_SERVER_URL;
 
   const [show, setShow] = useState(false);
@@ -108,6 +107,7 @@ function PracticeForm() {
               type="submit"
               fullWidth
               variant="contained"
+              style={{ backgroundColor: "#fcaf34", color: "white" }}
               sx={{ mt: 3, mb: 2 }}
             >
               + Add to Database
@@ -132,4 +132,4 @@ function PracticeForm() {
     </section>
   );
 }
-export default PracticeForm;
+export default RecyclingForm;

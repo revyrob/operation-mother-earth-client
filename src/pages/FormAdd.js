@@ -1,10 +1,10 @@
-import PracticeForm from "../components/PracticeForm/PracticeForm";
+import RecyclingForm from "../components/RecyclingForm/RecyclingForm";
 import NavBar from "../components/NavBar/NavBar";
 
 function FormAdd() {
   return (
     <>
-      <PracticeForm />
+      <RecyclingForm />
       <NavBar />
     </>
   );

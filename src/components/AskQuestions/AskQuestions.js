@@ -90,7 +90,7 @@ function AskQuestions() {
               type="submit"
               fullWidth
               variant="contained"
-              className="form__button"
+              style={{ backgroundColor: "#fcaf34", color: "white" }}
               sx={{ mt: 3, mb: 2 }}
             >
               Submit
