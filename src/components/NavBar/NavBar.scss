@@ -15,12 +15,12 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-  
+    padding: .5rem 0;
   }
   &__img {
     margin-top: .5rem;
-    height: 30px;
-    width: 30px;
+    height: 25px;
+    width: 25px;
     &:hover {
       border-radius: 50%;
       background-image: radial-gradient(white, green);
