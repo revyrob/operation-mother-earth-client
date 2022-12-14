@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Storyboard from "../components/Storyboard/Storyboard";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import NavBar from "../components/NavBar/NavBar";
 
 function Game() {
   const [show, setShow] = useState(false);
@@ -85,38 +86,43 @@ function Game() {
   };
 
   return (
-    <section className="game">
-      {showStory ? (
-        <Storyboard
-          img={`${REACT_APP_API_SERVER_URL}${story[currentStoryboard].image}`}
-          //how to set name in here for first storyboard
-          alt={story[currentStoryboard].alt}
-          text={story[currentStoryboard].text}
-          clickHome={clickHome}
-          clickForward={clickForward}
-          clickBack={clickBack}
-          name={name}
-        />
-      ) : (
-        <>
-          <NameGame nameHandler={setNameHandler} />
-          <Modal show={show} onHide={handleShow}>
-            <Modal.Header closeButton>
-              <Modal.Title>Oops!</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>You have not entered a username.</Modal.Body>
-            <Modal.Footer>
-              {/* <Button variant="secondary" onClick={handleClose}>
+    <>
+      <section className="game">
+        {showStory ? (
+          <>
+            <Storyboard
+              img={`${REACT_APP_API_SERVER_URL}${story[currentStoryboard].image}`}
+              //how to set name in here for first storyboard
+              alt={story[currentStoryboard].alt}
+              text={story[currentStoryboard].text}
+              clickHome={clickHome}
+              clickForward={clickForward}
+              clickBack={clickBack}
+              name={name}
+            />
+          </>
+        ) : (
+          <>
+            <NameGame nameHandler={setNameHandler} />
+            <Modal show={show} onHide={handleShow}>
+              <Modal.Header closeButton>
+                <Modal.Title>Oops!</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>You have not entered a username.</Modal.Body>
+              <Modal.Footer>
+                {/* <Button variant="secondary" onClick={handleClose}>
                 Close
               </Button> */}
-              <Button variant="primary" onClick={handleClose}>
-                Got it👍
-              </Button>
-            </Modal.Footer>
-          </Modal>
-        </>
-      )}
-    </section>
+                <Button variant="primary" onClick={handleClose}>
+                  Got it👍
+                </Button>
+              </Modal.Footer>
+            </Modal>
+          </>
+        )}
+        <NavBar />
+      </section>
+    </>
   );
 }
 export default Game;

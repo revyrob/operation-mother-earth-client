@@ -188,6 +188,9 @@ a:active {
 .education {
   display: flex;
   flex-direction: column;
+  max-width: 450px;
+  max-height: 750px;
+  margin: 0 auto;
  
   &__title {
     font-size: 24px;
@@ -202,9 +205,7 @@ a:active {
     &--div{
       display: flex;
       justify-content: space-between;
-      max-width: 450px;
-  max-height: 750px;
-  margin: 0 auto;
+ 
     }
     &--play {
       width: 50px;

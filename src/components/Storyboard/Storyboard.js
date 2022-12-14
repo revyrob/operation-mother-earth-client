@@ -38,8 +38,6 @@ function Storyboard({ img, text, alt, clickForward, clickBack }) {
           </p>
         </div>
       </div>
-
-      <NavBar />
     </section>
   );
 }
