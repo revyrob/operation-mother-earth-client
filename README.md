@@ -1,4 +1,4 @@
-# Operation Mother Earth -  Frontend 
+# 🌎 Operation Mother Earth -  Frontend 
 Operation Mother Earth is a multi-page application for school-age children to learn about electronic waste.  The web application in mobile responsiveness is intended to be played on a mobile or tablet device.  The application consists of a storyboard game, google search for e-waste centers around the client, user to add ew-waste centers to the server, ask questions and post questions, and view a collection of videos about e-waste. 
 
 ## 💻 Built with
