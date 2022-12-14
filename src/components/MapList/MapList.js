@@ -7,7 +7,10 @@ function MapList({ mapList }) {
     <section id="list" className="mapList">
       <div className="mapList__div">
         <div className="mapList__title--div">
-          <h2 className="mapList__title">E-waste Drop-off Locations</h2>
+          <h1 className="mapList__title">
+            E-waste Drop-off Locations{" "}
+            <span className="mapList__title--span">within 30km</span>
+          </h1>
         </div>
 
         <div>

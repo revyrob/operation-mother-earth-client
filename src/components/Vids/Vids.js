@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 function Vids({ image, title, source, id }) {
   return (
     <Link to={`/education/${id}`}>
-      <article className="vids">
-        <div className="vids__img--div">
+      <article className="vids ">
+        <div className="vids__img--div ">
           <img
-            className="vids__img"
+            className="vids__img "
             src={process.env.REACT_APP_API_SERVER_URL + image}
             alt={title}
           />

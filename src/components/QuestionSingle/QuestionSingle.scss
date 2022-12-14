@@ -1,23 +1,28 @@
-@use '../../styles/variables' as *;
+@use "../../styles/variables" as *;
 
 .single {
-    display: flex;
-    flex-direction: column;
-    &__title{
-        background-color: $color-dark-transparent;
-        color:white;
-        padding: 1rem 1.5rem;
-        text-align: center;
-    }
-    &__info {
-        margin: 0 2rem;
-    }
-    &__button {
-        margin-left: 60%;
-    }
-    &__q {
-        font-size: 20px;
-        font-weight: 500;
-       
-    }
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+
+  &__title {
+    background-color: $color-dark-transparent;
+    color: white;
+    padding: 1rem 1.5rem;
+    text-align: center;
+  }
+  &__info {
+    margin: 0 2rem;
+  }
+  &__button {
+    margin-left: 60%;
+  }
+  &__q {
+    font-size: 20px;
+    font-weight: 500;
+  }
 }

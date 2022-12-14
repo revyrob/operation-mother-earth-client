@@ -10,6 +10,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useRef } from "react";
 import MapList from "../components/MapList/MapList";
 import NavBar from "../components/NavBar/NavBar";
+import HeaderChange from "../components/HeaderChange/HeaderChange";
 
 export default function Recycling() {
   //state for map list
@@ -195,6 +196,7 @@ export default function Recycling() {
   else {
     return (
       <>
+        <HeaderChange />
         <section className="recycling">
           <TitleHeader
             img={recycling}
