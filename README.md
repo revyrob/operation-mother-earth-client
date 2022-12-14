@@ -1,6 +1,9 @@
 # 🌎 Operation Mother Earth -  Frontend 
 Operation Mother Earth is a multi-page application for school-age children to learn about electronic waste.  The web application in mobile responsiveness is intended to be played on a mobile or tablet device.  The application consists of a storyboard game, google search for e-waste centers around the client, user to add ew-waste centers to the server, ask questions and post questions, and view a collection of videos about e-waste. 
 
+## 🚀 Demo
+https://operation-mother-earth.netlify.app/
+
 ## 💻 Built with
 <li>React</li>
 <li>Framer/motion</li>
@@ -17,9 +20,6 @@ Operation Mother Earth is a multi-page application for school-age children to le
 <li>Google-API</li>
 <li>uuid</li>
 <li>uuid</li>
-
-## 🚀 Demo
-https://operation-mother-earth.netlify.app/
 
 ## 🛠️ Installation Steps:
 1. To start using this app you first need to clone the repository:
