@@ -72,9 +72,6 @@ export default function Recycling() {
     googleMapsApiKey: process.env.REACT_APP_NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
   });
 
-  //if map isn't loading
-  // if (!isLoaded) return <div>Loading...</div>;
-
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

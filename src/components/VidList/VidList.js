@@ -4,7 +4,7 @@ import Vids from "../Vids/Vids";
 function VidList({ item, vidList }) {
   return (
     <section className="vidList">
-      <h2 className="vidList__title">VIDEO LIBRARY</h2>
+      <h2 className="vidList__title">Video Library</h2>
       {vidList &&
         vidList
           .filter((vid) => vid.id !== item.id)

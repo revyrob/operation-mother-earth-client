@@ -14,7 +14,10 @@
     // }
     &__title {
         text-align: center;
-        margin-top: 2rem;
+        margin-top: 1rem;
+        background-color: $color-light;
+        color: white;
+        padding: .75rem 1.5rem;
         // @include desktop { 
         //     display: none;
         // }
