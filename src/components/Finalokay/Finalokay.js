@@ -7,22 +7,26 @@ function Finalokay({ score, text }) {
   let userName = sessionStorage.getItem("name");
 
   return (
-    <div className="okay">
-      <h1 className="okay__score">{userName}'s score:</h1>
+    <section className="okay">
+      <div className="okay__div">
+        <h1 className="okay__score">{userName}'s score:</h1>
 
-      <h2 className="okay__score--score">{Math.floor((score / 150) * 100)}%</h2>
-      <img src={img} alt="mother nature sad" />
-      <p className="okay__text">{text}</p>
-      <div className="okay__navigate">
-        <Link to="/game">
-          <button className="okay__button">
-            {" "}
-            <p className="okay__p">{"Play Again"}</p>
-          </button>
-        </Link>
+        <h2 className="okay__score--score">
+          {Math.floor((score / 150) * 100)}%
+        </h2>
+        <img src={img} alt="mother nature sad" />
+        <p className="okay__text">{text}</p>
+        <div className="okay__navigate">
+          <Link to="/game">
+            <button className="okay__button">
+              {" "}
+              <p className="okay__p">{"Play Again"}</p>
+            </button>
+          </Link>
+        </div>
       </div>
       <NavBar />
-    </div>
+    </section>
   );
 }
 export default Finalokay;

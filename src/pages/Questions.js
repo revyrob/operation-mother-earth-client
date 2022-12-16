@@ -44,6 +44,9 @@ function Questions() {
     }
 
     if (answerSelected === isCorrect) {
+      answerTimer = setTimeout(() => {
+        setAnswerCorrect(false);
+      }, 200);
       setAnswerCorrect(true);
 
       if (!answerTimer) {
@@ -103,7 +106,7 @@ function Questions() {
           />
         )
       ) : (
-        <div className="questions">
+        <div className="homepage">
           <div className="questions__progressBar">
             <Line
               percent={((currentQuestion + 1) / questions.length) * 100}

@@ -1,15 +1,16 @@
 @use "../../styles/variables" as *;
 
 .okay {
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  max-width: 450px;
-  max-height: 750px;
+ max-width: 450px;
   margin: 0 auto;
 
+  &__div {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
   &__score {
     font-size: 30px;
     display: flex;
@@ -22,7 +23,7 @@
   }
   &__text {
     font-size: 24px;
-    width: 80vw;
+    margin: 0 1rem;
     line-height: 42px;
   }
   &__p{
